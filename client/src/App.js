@@ -1,20 +1,18 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import ListView from './views/ListView';
-import ItemView from './views/ItemView';
+import NotFound from './views/NotFound';
+import Shop from './views/Shop';
 
 const App = () => {
     return (
         <Router>
             <Switch>
-                <Route exact path="/" > 
-                    <ListView />
+                <Route exact path='/'>
+                    <Shop />
                 </Route>
-                <Route path="/item/:id">
-                    <ItemView />
-                </Route>
-                <Route path="/" >
-                    404: Page not found
+                <Route path='/item/:id'></Route>
+                <Route path='/'>
+                    <NotFound />
                 </Route>
             </Switch>
         </Router>
