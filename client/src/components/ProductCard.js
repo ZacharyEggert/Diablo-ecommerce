@@ -5,12 +5,14 @@ import { formatPrice } from '../util';
 const ProductCard = ({ product }) => {
     return (
         <Link to={`/product/${product.id}`} className='group'>
-            <div className='w-full overflow-hidden rounded-lg bg-grey-400 aspect-w-1 aspect-h-1 '>
-                <img
+            <div className='w-full overflow-hidden rounded-lg bg-grey-400 aspect-w-1 aspect-h-1'>
+                <div className='relative pb-[100%]'>
+                    <img
                     src={product.imageSrc}
                     alt={product.name}
-                    className='object-cover object-center w-full h-full group-hover:opacity-90'
-                />
+                    className='absolute object-cover object-center w-full h-full group-hover:opacity-90'
+                    />
+                </div>
             </div>
             <h3 className='mt-4 text-sm text-grey-400'>{product.name}</h3>
             <p className='mt-1 text-lg font-medium text-grey-300'>

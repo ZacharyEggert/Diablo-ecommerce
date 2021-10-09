@@ -5,7 +5,7 @@
 @layer components{
 
     body {
-        @apply text-white font-libre-franklin bg-grey-a00 overflow-x-hidden
+        @apply text-white font-libre-franklin bg-grey-a00
     }
 
     a{

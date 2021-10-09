@@ -1,12 +1,13 @@
-import React from 'react';
-import Navigation from '../components/Navigation';
-import ShopView from '../components/ShopView';
-import Footer from '../components/Footer';
+import React, { useState } from "react";
+import Footer from "../components/Footer";
+import Navigation from "../components/Navigation";
+import ShopView from "../components/ShopView";
 
-const Shop = (props) => {
-    const [searchTerm, setSearchTerm] = React.useState('');
 
-    
+const Merchandise = (props) => {
+
+    const [searchTerm, setSearchTerm] = useState("");
+
     const { inventory } = props;
 
     return (
@@ -23,11 +24,12 @@ const Shop = (props) => {
                 />
             </div>
             <div className='container mx-auto'>
-                <ShopView inventory={inventory.filter((item) => {return !item.category.toLowerCase().includes('merch')})} searchTerm={searchTerm} />
+                <ShopView inventory={inventory.filter((item) => {return item.category.toLowerCase().includes('merch')})} searchTerm={searchTerm} />
             </div>
             <Footer />
         </div>
     );
-};
+}
 
-export default Shop;
+
+export default Merchandise;
