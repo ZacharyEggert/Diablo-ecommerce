@@ -5,6 +5,7 @@ export const contact = {
     state: 'WA',
     zip: '98057',
     phone: '+1 (833) 342-2567',
+    wordPhone: '+1 (833) DIA-BLOS',
     email: 'orders@diabloguitars.com',
     supportEmail: 'orders@diabloguitars.com',
     hours: {

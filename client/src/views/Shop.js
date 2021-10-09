@@ -1,6 +1,7 @@
 import React from 'react';
 import Navigation from '../components/Navigation';
 import ShopView from '../components/ShopView';
+import Footer from '../components/Footer';
 
 const Shop = () => {
     const [searchTerm, setSearchTerm] = React.useState('');
@@ -161,7 +162,7 @@ const Shop = () => {
     ];
 
     return (
-        <div>
+        <div className='flex flex-col justify-between'>
             <Navigation />
             <div className='container flex flex-row items-center justify-end px-4 pt-8 mx-auto md:max-w-2xl sm:px-6 lg:px-8 xl:max-w-7xl lg:max-w-5xl'>
                 <></>
@@ -176,6 +177,7 @@ const Shop = () => {
             <div className='container mx-auto'>
                 <ShopView inventory={testInventory} searchTerm={searchTerm} />
             </div>
+            <Footer />
         </div>
     );
 };

@@ -42,11 +42,7 @@ export default function Navigation() {
                         </div>
                     </div>
                     <div className='hidden ml-10 space-x-4 lg:block'>
-                        <Link
-                            to='/login'
-                            className='inline-block px-4 py-2 text-base font-medium text-white border border-transparent rounded-md bg-grey-700 hover:bg-opacity-75'>
-                            Sign in
-                        </Link>
+                        <div className='w-20 h-20'></div>
                     </div>
                 </div>
             </nav>
