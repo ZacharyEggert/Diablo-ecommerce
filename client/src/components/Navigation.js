@@ -4,10 +4,10 @@ import NavigationMobile from './NavigationMobile';
 
 const navigation = [
     { name: 'Shop', href: '/' },
-    { name: 'Sell Us Your Guitars', href: '/selling' },
+    { name: 'Sell Us Your Guitars', href: '/sell-us-your-guitars' },
     { name: 'Merchandise', href: '/merchandise' },
-    { name: 'About Us', href: '/about' },
-    { name: 'Appointments', href: '/appointment' },
+    { name: 'About Us', href: '/about-us' },
+    { name: 'Appointments', href: '/appointments' },
     { name: 'Contact', href: '/contact' },
 ];
 

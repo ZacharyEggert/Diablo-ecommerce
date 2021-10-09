@@ -162,7 +162,7 @@ const Shop = () => {
     ];
 
     return (
-        <div className='flex flex-col justify-between'>
+        <div className='flex flex-col justify-between min-h-screen'>
             <Navigation />
             <div className='container flex flex-row items-center justify-end px-4 pt-8 mx-auto md:max-w-2xl sm:px-6 lg:px-8 xl:max-w-7xl lg:max-w-5xl'>
                 <></>
