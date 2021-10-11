@@ -1,9 +1,8 @@
 const router = require('express').Router();
+const path = require('path');
 
 router.get('/', (req, res) => {
-    res.json({
-        message: 'Welcome to the App!'
-    });
+    res.status(200).sendFile(path.join(__dirname, '../../client/build/index.html'));
 });
 
 
