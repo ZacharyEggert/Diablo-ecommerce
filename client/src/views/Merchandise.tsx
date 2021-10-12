@@ -2,9 +2,11 @@ import React, { useState } from "react";
 import Footer from "../components/Footer";
 import Navigation from "../components/Navigation";
 import ShopView from "../components/ShopView";
+import IShop from "../interfaces/shop";
 
 
-const Merchandise = (props) => {
+
+const Merchandise = (props: IShop) => {
 
     const [searchTerm, setSearchTerm] = useState("");
 
@@ -24,7 +26,7 @@ const Merchandise = (props) => {
                 />
             </div>
             <div className='container mx-auto'>
-                <ShopView inventory={inventory.filter((item) => {return item.category.toLowerCase().includes('merch')})} searchTerm={searchTerm} />
+                <ShopView inventory={inventory.filter((item) => {return item.category?.toLowerCase().includes('merch')})} searchTerm={searchTerm} />
             </div>
             <Footer />
         </div>

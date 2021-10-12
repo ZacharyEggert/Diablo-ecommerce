@@ -1,5 +1,5 @@
 export default interface Item {
-    _id: string;
+    _id?: string;
     id: number;
     title: string;
     description?: string;
@@ -9,4 +9,6 @@ export default interface Item {
     quantity?: number;
     createdAt?: Date;
     updatedAt?: Date;
+    product_image_1?: string;
+    stock?: number;
 }

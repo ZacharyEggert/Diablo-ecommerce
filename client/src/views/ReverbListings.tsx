@@ -5,15 +5,17 @@ import Pagination from '../components/Pagination';
 import ReverbView from '../components/ReverbView';
 import { getReverbPosts } from '../util/api';
 import { useHistory } from 'react-router-dom';
+import Item from '../interfaces/item';
 
-const ReverbListings = (props) => {
+
+const ReverbListings = (props:any) => {
     const [searchTerm, setSearchTerm] = React.useState('');
     const [pageNumber, setPageNumber] = React.useState(1);
     const itemsPerPage = 12;
 
     const history = useHistory();
 
-    const urlSetPageNumber = (pageNumber) => {
+    const urlSetPageNumber = (pageNumber:number) => {
         history.push({
             pathname: '/reverb-listings',
             search: `?page=${pageNumber}`,
@@ -21,7 +23,8 @@ const ReverbListings = (props) => {
         setPageNumber(pageNumber);
     };
 
-    const [reverbInventory, setReverbInventory] = React.useState([]);
+    const initialItems:Item[] = [];
+    const [reverbInventory, setReverbInventory] = React.useState<Item[]>(initialItems);
 
     React.useEffect(() => {
         getReverbPosts().then((response) => {
