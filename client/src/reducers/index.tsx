@@ -1,17 +1,17 @@
-import { combineReducers } from 'redux';
+import { combineReducers, Reducer } from 'redux';
 
-const cartReducer = (state = [], action) => {
+const cartReducer:Reducer = (state = [], action) => {
     switch (action.type) {
         case 'ADD_TO_CART':
             return [...state, action.payload];
         case 'REMOVE_FROM_CART':
-            return state.filter((item) => item.id !== action.payload);
+            return state.filter((item: { id: any; }) => item.id !== action.payload);
         default:
             return state;
     }
 };
 
-const cartTotalReducer = (state = 0, action) => {
+const cartTotalReducer:Reducer = (state = 0, action) => {
     switch (action.type) {
         case 'ADD_TO_CART':
             return state + action.payload.price;
@@ -22,7 +22,7 @@ const cartTotalReducer = (state = 0, action) => {
     }
 };
 
-const productsReducer = (state = [], action) => {
+const productsReducer:Reducer = (state = [], action) => {
     switch (action.type) {
         case 'ADD_PRODUCTS':
             return action.payload;
@@ -31,7 +31,7 @@ const productsReducer = (state = [], action) => {
     }
 };
 
-const cartItemCountReducer = (state = 0, action) => {
+const cartItemCountReducer:Reducer = (state = 0, action) => {
     switch (action.type) {
         case 'ADD_TO_CART':
             return state + 1;

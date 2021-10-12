@@ -1,9 +1,10 @@
-/**
- *
- * @param {object} options {price, currency}
- * @returns
- */
-export const formatPrice = ({ price, currency }) => {
+interface FormatPriceOptions {
+    currency: string;
+    price: number;
+}
+
+
+export const formatPrice = ({ price, currency }: FormatPriceOptions) => {
     let mutablePrice = price;
 
     if (!mutablePrice) mutablePrice = 0;
