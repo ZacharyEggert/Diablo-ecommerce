@@ -1,7 +1,7 @@
 import React from 'react';
 import { contact } from '../data';
 
-const FooterInfo = () => {
+const FooterInfo:React.FC = () => {
     const addressLink = `https://www.google.com/maps/place/${contact.address},+${contact.city},+${contact.state}+${contact.zip}`;
 
     return (

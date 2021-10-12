@@ -1,11 +1,14 @@
 import React from 'react';
+import IPagination from '../interfaces/pagination';
+
+
 
 const Pagination = ({
     totalItems,
     itemsPerPage,
     pageNumber,
     setPageNumber,
-}) => {
+}:IPagination) => {
     const lastPage = Math.ceil(totalItems / itemsPerPage);
 
     return (

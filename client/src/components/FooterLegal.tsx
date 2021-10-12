@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const FooterLegal = () => {
+const FooterLegal:React.FC = () => {
     return (
         <div className='footer-legal'>
             <h3 className='my-2 text-lg font-bold text-center text-grey-200'>Legal</h3>

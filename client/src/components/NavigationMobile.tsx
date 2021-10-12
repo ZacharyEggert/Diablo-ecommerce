@@ -3,11 +3,19 @@ import { Fragment } from 'react';
 import { Popover, Transition } from '@headlessui/react';
 import { MenuIcon } from '@heroicons/react/solid';
 
-function classNames(...classes) {
+function classNames(...classes: string[]) {
     return classes.filter(Boolean).join(' ');
 }
 
-export default function NavigationMobile(props) {
+interface IItem {
+    name: string;
+    href: string;
+    description?: string;
+}
+interface NavigationMobileProps {
+    items: IItem[];
+}
+export default function NavigationMobile(props: NavigationMobileProps) {
     const { items } = props;
 
     return (

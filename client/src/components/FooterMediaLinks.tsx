@@ -1,7 +1,8 @@
 import React from 'react';
-import { ReactComponent as FacebookLogo } from '../assets/facebook.svg';
-import { ReactComponent as InstagramLogo } from '../assets/instagram.svg';
-const FooterMediaLinks = () => {
+import FacebookLogo from '../assets/facebook.svg';
+import InstagramLogo from '../assets/instagram.svg';
+
+const FooterMediaLinks:React.FC = () => {
     return (
         <div className='footer-media-links'>
             <h3 className='mx-auto my-2 text-lg font-bold text-grey-200 min-w-min max-w-max'>
