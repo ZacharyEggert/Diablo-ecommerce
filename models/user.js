@@ -28,12 +28,13 @@ userSchema.pre('save', function (next) {
     });
 });
 
-userSchema.methods.comparePassword = (password) => {
+userSchema.methods.comparePassword = function(password, callback){
+    // console.log('hash', userPassHash);
     bcrypt.compare(password, this.password, (err, isMatch) => {
         if (err) {
-            return err;
+            callback(err);
         }
-        return isMatch;
+        callback(null, isMatch);
     });
 };
 

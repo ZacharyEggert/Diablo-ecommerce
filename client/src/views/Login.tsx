@@ -12,7 +12,7 @@ const Login: React.FC<ILoginProps> = () => {
         const password = e.currentTarget.password.value;
         // console.log(email, password);
         login(email, password).then((res) => {
-            console.log(res);
+            if (res.data?.error) console.log(res.data);
         });
     };
 
