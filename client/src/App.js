@@ -6,6 +6,7 @@ import ContactUs from './views/ContactUs';
 import Merchandise from './views/Merchandise';
 import NotFound from './views/NotFound';
 import SellUsYourGuitars from './views/SellUsYourGuitars';
+import ReverbListings from './views/ReverbListings'
 import Shop from './views/Shop';
 
 const App = () => {
@@ -298,6 +299,10 @@ const App = () => {
                 <Route path='/about-us'>
                     <AboutUs />
                 </Route>
+                <Route path='/reverb-listings'>
+                    <ReverbListings />
+                </Route>
+
                 <Route path='/merchandise'>
                     <Merchandise inventory={testInventory}/>
                 </Route>
