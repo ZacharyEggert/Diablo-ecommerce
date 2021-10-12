@@ -13,6 +13,10 @@ const FooterLegal:React.FC = () => {
                     <Link to='/consignments' className='hover:text-white'>Consignments</Link>
                 </li>
             </ul>
+            <div className='flex flex-row items-center justify-center p-4 '>
+            <button className='px-4 py-2 mx-auto rounded-full text-grey-200 bg-none hover:none'>
+                <Link to='/login' className='mx-auto hover:text-white'>Log In</Link>
+            </button></div>
         </div>
     );
 };

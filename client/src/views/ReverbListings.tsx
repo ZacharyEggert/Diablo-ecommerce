@@ -3,7 +3,7 @@ import Footer from '../components/Footer';
 import Navigation from '../components/Navigation';
 import Pagination from '../components/Pagination';
 import ReverbView from '../components/ReverbView';
-import { getReverbPosts } from '../util/api';
+import { getReverbPosts } from "../api/reverb";
 import { useHistory } from 'react-router-dom';
 import Item from '../interfaces/item';
 

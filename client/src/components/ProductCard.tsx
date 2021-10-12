@@ -1,8 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import Item from '../interfaces/item';
 import { formatPrice } from '../util';
 
-const ProductCard = ({ product }) => {
+interface IProductCardProps {
+    product: Item;
+}
+
+const ProductCard = ({ product }:IProductCardProps) => {
     return (
         <Link to={`/product/${product.id}`} className='group'>
             <div className='w-full overflow-hidden rounded-lg bg-grey-400 aspect-w-1 aspect-h-1'>

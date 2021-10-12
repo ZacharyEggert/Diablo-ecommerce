@@ -1,7 +1,14 @@
 import React from 'react';
+import Item from '../interfaces/item';
 import ProductCard from './ProductCard';
 
-const ShopView = (props) => {
+
+interface IShopViewProps {
+    searchTerm: string;
+    inventory: Item[];
+}
+
+const ShopView = (props:IShopViewProps) => {
 
     const { searchTerm, inventory } = props;
   

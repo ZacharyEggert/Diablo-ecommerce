@@ -1,5 +1,5 @@
 import React from 'react';
-import { sendInquiry } from '../util/api';
+import { sendInquiry } from '../api/inquiry';
 
 const EmailForm:React.FC = () => {
     return (

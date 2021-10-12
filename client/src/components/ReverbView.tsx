@@ -1,13 +1,23 @@
 import React, { useEffect } from 'react';
+import Item from '../interfaces/item';
 import ProductCard from './ProductCard';
 
-const ShopView = (props) => {
+interface IShopViewProps {
+    searchTerm:string;
+     inventory : Item[];
+      pageNumber : number;
+       setPageNumber : (pageNumber:number) => void;
+        itemsPerPage : number;
+}
+
+const ShopView = (props:IShopViewProps) => {
 
     const { searchTerm, inventory, pageNumber, setPageNumber, itemsPerPage } = props;
 
 
     useEffect(() => {
-        setPageNumber(new URLSearchParams(window.location.search).get('page') || 1);
+        setPageNumber(parseInt(new URLSearchParams(window.location.search).get('page')??'1'));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
   
 
@@ -19,7 +29,7 @@ const ShopView = (props) => {
             <div className="grid grid-cols-1 gap-y-10 sm:grid-cols-2 gap-x-6 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">
               {inventory.filter((item) => {
                   return item.title.toLowerCase().includes(searchTerm.toLowerCase())
-              }).slice(itemsPerPage*(pageNumber-1), itemsPerPage*(pageNumber)).map((product) => (
+              }).slice(itemsPerPage*(pageNumber-1), itemsPerPage*(pageNumber)).map((product:Item) => (
                 <ProductCard key={product.id} product={product}/>
               ))}
             </div>

@@ -1,6 +1,6 @@
 import React from 'react';
-import FacebookLogo from '../assets/facebook.svg';
-import InstagramLogo from '../assets/instagram.svg';
+import { ReactComponent as FacebookLogo} from '../assets/facebook.svg';
+import { ReactComponent as InstagramLogo} from '../assets/instagram.svg';
 
 const FooterMediaLinks:React.FC = () => {
     return (

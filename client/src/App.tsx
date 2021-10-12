@@ -9,6 +9,7 @@ import SellUsYourGuitars from './views/SellUsYourGuitars';
 import ReverbListings from './views/ReverbListings'
 import Shop from './views/Shop';
 import Item from './interfaces/item';
+import Login from './views/Login';
 
 const App = () => {
 
@@ -287,6 +288,9 @@ const App = () => {
             <Switch>
                 <Route exact path='/'>
                     <Shop inventory={testInventory}/>
+                </Route>
+                <Route path='/login'>
+                    <Login/>
                 </Route>
                 <Route path='/sell-us-your-guitars'>
                     <SellUsYourGuitars />
