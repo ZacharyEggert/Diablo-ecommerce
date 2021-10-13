@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import AboutUs from './views/AboutUs';
 import Appointments from './views/Appointments';
@@ -6,14 +6,35 @@ import ContactUs from './views/ContactUs';
 import Merchandise from './views/Merchandise';
 import NotFound from './views/NotFound';
 import SellUsYourGuitars from './views/SellUsYourGuitars';
-import ReverbListings from './views/ReverbListings'
+import ReverbListings from './views/ReverbListings';
 import Shop from './views/Shop';
 import Item from './interfaces/item';
 import Login from './views/Login';
+import { useDispatch } from 'react-redux';
+import { validateUser } from './api/user';
+import ProductView from './views/ProductView';
 
 const App = () => {
+    const dispatch = useDispatch();
 
-    
+    useEffect(() => {
+        validateUser()
+            .then((res) => {
+                // console.log(res.data);
+                if (res.status === 200 && res.data?.email) {
+                    dispatch({
+                        type: 'SET_USER',
+                        payload: { email: res.data.email, _id: res.data._id },
+                    });
+                }
+            })
+            .catch((err) => {
+                console.log(err);
+            });
+
+        //eslint-disable-next-line
+    }, []);
+
     const testInventory: Item[] = [
         {
             id: 1,
@@ -287,10 +308,10 @@ const App = () => {
         <Router>
             <Switch>
                 <Route exact path='/'>
-                    <Shop inventory={testInventory}/>
+                    <Shop inventory={testInventory} />
                 </Route>
                 <Route path='/login'>
-                    <Login/>
+                    <Login />
                 </Route>
                 <Route path='/sell-us-your-guitars'>
                     <SellUsYourGuitars />
@@ -309,9 +330,11 @@ const App = () => {
                 </Route>
 
                 <Route path='/merchandise'>
-                    <Merchandise inventory={testInventory}/>
+                    <Merchandise inventory={testInventory} />
                 </Route>
-                <Route path='/item/:id'></Route>
+                <Route path='/product/:id'>
+                    <ProductView />
+                </Route>
                 <Route path='*'>
                     <NotFound />
                 </Route>

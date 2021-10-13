@@ -2,22 +2,19 @@
 import axios from 'axios';
 import Item from '../interfaces/item';
 
+export const getOneItem = (id: number | string): Promise<any> => {
+    return axios.get(`/api/item/${id}`);
+};
 
-
-export default {
-    getOne(id: number | string): Promise<any> {
-        return axios.get(`/api/item/${id}`);
-    },
-    getAll(): Promise<any> {
-        return axios.get('/api/item');
-    },
-    create(item: Item): Promise<any> {
-        return axios.post('/api/item', item);
-    },
-    update(item: Item): Promise<any> {
-        return axios.put(`/api/item/${item._id}`, item);
-    },
-    delete(id: number | string): Promise<any> {
-        return axios.delete(`/api/item/${id}`);
-    },
+export const getAllItems = (): Promise<any> => {
+    return axios.get('/api/item');
+};
+export const createItem = (item: Item): Promise<any> => {
+    return axios.post('/api/item', item);
+};
+export const updateItem = (item: Item): Promise<any> => {
+    return axios.put(`/api/item/${item._id}`, item);
+};
+export const deleteItem = (id: number | string): Promise<any> => {
+    return axios.delete(`/api/item/${id}`);
 };

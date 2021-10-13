@@ -1,17 +1,52 @@
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import diabloLogo from '../assets/DIABLO420px.gif';
+import { store } from '../configureStore';
 import NavigationMobile from './NavigationMobile';
 
-const navigation = [
-    { name: 'Shop', href: '/' },
-    { name: 'Sell Us Your Guitars', href: '/sell-us-your-guitars' },
-    { name: 'Merchandise', href: '/merchandise' },
-    { name: 'About Us', href: '/about-us' },
-    { name: 'Appointments', href: '/appointments' },
-    // { name: 'Contact', href: '/contact' },
-];
-
 export default function Navigation() {
+    const defaultNavigation = [
+        { name: 'Shop', href: '/' },
+        { name: 'Sell Us Your Guitars', href: '/sell-us-your-guitars' },
+        { name: 'Merchandise', href: '/merchandise' },
+        { name: 'About Us', href: '/about-us' },
+        { name: 'Appointments', href: '/appointments' },
+        // { name: 'Contact', href: '/contact' },
+    ];
+
+    const adminNavigation = [
+        { name: 'Shop', href: '/' },
+        // { name: 'Sell Us Your Guitars', href: '/sell-us-your-guitars' },
+        { name: 'Merchandise', href: '/merchandise' },
+        // { name: 'About Us', href: '/about-us' },
+        // { name: 'Appointments', href: '/appointments' },
+        // { name: 'Contact', href: '/contact' },
+        { name: 'Reverb', href: '/reverb-listings' },
+        { name: 'Inventory', href: '/inventory-management' },
+    ];
+
+    const [navigation, setNavigation] = useState(defaultNavigation);
+
+    useEffect(() => {
+        if(store.getState().user?.email){
+            setNavigation(adminNavigation);
+        }
+        else{
+            setNavigation(defaultNavigation);
+        }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
+
+    store.subscribe(() => {
+        if(store.getState().user?.email){
+            setNavigation(adminNavigation);
+        }
+        else{
+            setNavigation(defaultNavigation);
+        }
+        
+    });
+
     return (
         <header className='bg-grey-900'>
             <nav

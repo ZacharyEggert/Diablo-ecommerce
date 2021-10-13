@@ -42,11 +42,24 @@ const cartItemCountReducer:Reducer = (state = 0, action) => {
     }
 };
 
+const userReducer:Reducer = (state = {}, action) => {
+    switch (action.type) {
+        case 'SET_USER':
+            // console.log('setting user');
+            return action.payload;
+        case 'LOGOUT':
+            return {};
+        default:
+            return state;
+    }
+};
+
 const rootReducer = combineReducers({
     cart: cartReducer,
     cartTotal: cartTotalReducer,
     cartItemCount: cartItemCountReducer,
     products: productsReducer,
+    user: userReducer,
 });
 
 export default rootReducer;

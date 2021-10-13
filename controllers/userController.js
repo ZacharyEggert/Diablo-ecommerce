@@ -95,4 +95,13 @@ module.exports = {
                 res.status(500).json(err);
             });
     },
+    validate: function (req, res) {
+        if (req.session.user) {
+            res.json(req.session.user);
+        } else {
+            res.json({
+                error: 'User not logged in',
+            });
+        }
+    }
 };

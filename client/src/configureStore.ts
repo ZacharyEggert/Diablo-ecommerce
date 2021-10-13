@@ -6,13 +6,14 @@ import monitorReducersEnhancer from './enhancers/monitorReducers';
 import loggerMiddleware from './middleware/logger';
 import rootReducer from './reducers';
 
-export default function configureStore(
+export function configureStore(
     preloadedState?:
         | {
               cart?: any[] | undefined;
               cartTotal?: number | undefined;
               cartItemCount?: number | undefined;
               products?: any | undefined;
+              user?: any | undefined;
           }
         | undefined
 ) {
@@ -26,3 +27,6 @@ export default function configureStore(
 
     return store;
 }
+
+
+export const store = configureStore()

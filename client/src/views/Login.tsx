@@ -1,10 +1,17 @@
 import React from 'react';
+import { useDispatch } from 'react-redux';
+import { Redirect } from 'react-router';
 import { login } from '../api/user';
 import PageWrapper from '../wrappers/PageWrapper';
 
 interface ILoginProps {}
 
 const Login: React.FC<ILoginProps> = () => {
+
+    const dispatch = useDispatch();
+
+    const [shouldRedirect, setShouldRedirect] = React.useState(false);
+
     const submitLoginForm = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         console.log('submit login form');
@@ -12,12 +19,20 @@ const Login: React.FC<ILoginProps> = () => {
         const password = e.currentTarget.password.value;
         // console.log(email, password);
         login(email, password).then((res) => {
-            if (res.data?.error) console.log(res.data);
+            if (res.data?.error) return console.error(res.data);
+            if(res.data?.user) {
+                console.log('login success');
+                const {_id, email} = res.data.user
+                localStorage.setItem('user', JSON.stringify({_id, email}));
+                dispatch({type:'SET_USER', payload:{_id, email}});
+                setShouldRedirect(true);
+            }
         });
     };
 
     return (
         <PageWrapper>
+            {shouldRedirect && <Redirect to="/"/>}
             <div className='flex flex-col items-center justify-center py-12'>
                 <form className='w-full max-w-sm' onSubmit={submitLoginForm}>
                     <div className='flex flex-col items-center justify-center p-2 pb-8'>

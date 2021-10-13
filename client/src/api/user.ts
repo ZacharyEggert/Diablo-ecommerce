@@ -7,6 +7,10 @@ export const login = (email: string, password: string) => {
     });
 };
 
+export const validateUser = () => {
+    return axios.post('/api/user/validate');
+};
+
 export const logout = () => {
     return axios.post('/api/user/logout');
 };
