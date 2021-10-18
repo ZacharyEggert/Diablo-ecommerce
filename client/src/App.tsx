@@ -10,6 +10,7 @@ import ReverbListings from './views/ReverbListings';
 import Shop from './views/Shop';
 import Item from './interfaces/item';
 import Login from './views/Login';
+import Admin from './views/Admin';
 import { useDispatch } from 'react-redux';
 import { validateUser } from './api/user';
 import ProductView from './views/ProductView';
@@ -312,6 +313,9 @@ const App = () => {
                 </Route>
                 <Route path='/login'>
                     <Login />
+                </Route>
+                <Route path='/admin'>
+                    <Admin />
                 </Route>
                 <Route path='/sell-us-your-guitars'>
                     <SellUsYourGuitars />

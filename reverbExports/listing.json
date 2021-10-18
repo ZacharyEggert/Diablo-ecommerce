@@ -1,0 +1,694 @@
+{
+  "id": 45583029,
+  "make": "Jackson",
+  "model": "Custom Shop USA King V Goat Skull",
+  "finish": "Black",
+  "year": "2017",
+  "title": "Jackson Custom Shop USA King V - KV2 - 1 Hum - 24 Fret - Goat Skull -  2017 w Original Jackson HSC",
+  "created_at": "2021-10-13T20:14:26-05:00",
+  "shop_name": "DIABLO GUITARS - AXES OF EVIL!",
+  "description": "Just in at Diablo Guitars is this simply wicked Jackson USA Custom Shop King V with Goat Skull / Pentagram graphic.<br><br>The Jackson King V is a classic Jackson design and has become an iconic guitar in the metal world. This Jackson Custom Shop masterpiece has 24 Jumbo Frets to reach the full two octaves. It features a quartersawn through-body painted maple neck, and the phenomenally fast feel of its compound-radius ebony fingerboard (12\"-16\") is simply breathtaking. This guitar begs to be played!<br><br>Other premium features include a single DiMarzio Tone Zone Humbucker in the bridge humbucking pickup which produces high gain heavy tones yet cleans up nicely. It is perfect for metal and rock. In addition, it has a single volume knob, Floyd Rose Original locking nut and double-locking two-point tremolo, ivoroid fingerboard and headstock binding, black hardware, black headstock with white Jackson logo, and mother of pearl shark fin inlays on it's perfect ebony neck.&nbsp;<br><br>Our King V comes to us in excellent condition. There are some minor signs of player wear but no serious dings or scratches. Even the points of the V are remarkably ding free!!! The only chip or real blemish on the guitar is on one of the back beveled edges and pictured above. One of the case hinges has been damaged. All of the latches and other hinges function perfectly.&nbsp;<br><br>The guitar has been freshly set up with Dunlop .10-.46 strings in standard tuning. Ships in original Jackson molded hard shell case.&nbsp;<br>\n\n<br><ul><li>Make: Jackson</li><li>Model: Custom Shop King V - KV2</li><li>Year: 2009</li><li>Finish: Black with Custom Goat Skull / Pentagram Artwork&nbsp;</li><li>Country of Origin: USA</li><li>Serial #J9417</li><li>Condition: Excellent</li><li>Weight: 7 lbs 7.73 oz</li><li>Body Type: Solid</li><li>Body Wood: Alder</li><li>Scale Length: 25.5</li><li>Neck Joint: Neck Through Body</li><li>Neck Wood: Quartersawn maple</li><li>Neck Binding: White</li><li>Neck Finish: Matching</li><li>Fingerboard: Ebony</li><li>FingerBoard Radius: 12”-16” Compound Radius</li><li>Neck Profile: Speed neck</li><li>Inlays: Mother of Pearl Shark Fin</li><li>Nut: Floyd Locking</li><li>Nut Width: 1.6875\" (42.86 mm)</li><li>Frets: 24 Jumbo Frets</li><li>Pickups: DiMarzio Tone Zone Bridge Pickup (F Spaced)&nbsp;</li><li>Controls: 1 Master Volume</li><li>Hardware: Black</li><li>Tuning Machines: Jackson Die-cast 6-Inline</li><li>Bridge: Floyd Rose Original Locking Tremolo (Recessed)</li><li>Knobs: Black Dome Knurled</li><li>String Gauge: .10-.46</li><li>Case: Jackson Branded SKB TSA Hard Shell</li></ul>",
+  "condition": {
+    "uuid": "df268ad1-c462-4ba6-b6db-e007e23922ea",
+    "display_name": "Excellent",
+    "description": "Excellent items are almost entirely free from blemishes and other visual defects and have been played or used with the utmost care."
+  },
+  "price": {
+    "amount": "4319.99",
+    "amount_cents": 431999,
+    "currency": "USD",
+    "symbol": "$",
+    "display": "$4,319.99"
+  },
+  "inventory": 1,
+  "has_inventory": false,
+  "offers_enabled": true,
+  "auction": false,
+  "categories": [
+    {
+      "uuid": "dfd39027-d134-4353-b9e4-57dc6be791b9",
+      "full_name": "Electric Guitars"
+    }
+  ],
+  "listing_currency": "USD",
+  "published_at": "2021-10-13T20:49:03-05:00",
+  "buyer_price": {
+    "amount": "4319.99",
+    "amount_cents": 431999,
+    "currency": "USD",
+    "symbol": "$",
+    "display": "$4,319.99",
+    "tax_included_hint": "",
+    "tax_included": false,
+    "tax_included_rate": 0
+  },
+  "seller_price": {
+    "amount": "4319.99",
+    "amount_cents": 431999,
+    "currency": "USD",
+    "symbol": "$",
+    "display": "$4,319.99"
+  },
+  "state": {
+    "slug": "live",
+    "description": "Live"
+  },
+  "shipping_profile_id": 61256,
+  "shipping": {
+    "local": true,
+    "rates": [
+      {
+        "region_code": "US_CON",
+        "rate": {
+          "amount": "75.00",
+          "amount_cents": 7500,
+          "currency": "USD",
+          "symbol": "$",
+          "display": "$75"
+        }
+      },
+      {
+        "region_code": "US_AK",
+        "rate": {
+          "amount": "100.00",
+          "amount_cents": 10000,
+          "currency": "USD",
+          "symbol": "$",
+          "display": "$100"
+        }
+      },
+      {
+        "region_code": "US_HI",
+        "rate": {
+          "amount": "100.00",
+          "amount_cents": 10000,
+          "currency": "USD",
+          "symbol": "$",
+          "display": "$100"
+        }
+      },
+      {
+        "region_code": "AFRICA",
+        "rate": {
+          "amount": "250.00",
+          "amount_cents": 25000,
+          "currency": "USD",
+          "symbol": "$",
+          "display": "$250"
+        }
+      },
+      {
+        "region_code": "ASIA",
+        "rate": {
+          "amount": "250.00",
+          "amount_cents": 25000,
+          "currency": "USD",
+          "symbol": "$",
+          "display": "$250"
+        }
+      },
+      {
+        "region_code": "EUR_NON_EU",
+        "rate": {
+          "amount": "250.00",
+          "amount_cents": 25000,
+          "currency": "USD",
+          "symbol": "$",
+          "display": "$250"
+        }
+      },
+      {
+        "region_code": "EUR_EU",
+        "rate": {
+          "amount": "250.00",
+          "amount_cents": 25000,
+          "currency": "USD",
+          "symbol": "$",
+          "display": "$250"
+        }
+      },
+      {
+        "region_code": "SOUTH_AMERICA",
+        "rate": {
+          "amount": "250.00",
+          "amount_cents": 25000,
+          "currency": "USD",
+          "symbol": "$",
+          "display": "$250"
+        }
+      },
+      {
+        "region_code": "AR",
+        "rate": {
+          "amount": "200.00",
+          "amount_cents": 20000,
+          "currency": "USD",
+          "symbol": "$",
+          "display": "$200"
+        }
+      },
+      {
+        "region_code": "AU",
+        "rate": {
+          "amount": "250.00",
+          "amount_cents": 25000,
+          "currency": "USD",
+          "symbol": "$",
+          "display": "$250"
+        }
+      },
+      {
+        "region_code": "AT",
+        "rate": {
+          "amount": "250.00",
+          "amount_cents": 25000,
+          "currency": "USD",
+          "symbol": "$",
+          "display": "$250"
+        }
+      },
+      {
+        "region_code": "BE",
+        "rate": {
+          "amount": "250.00",
+          "amount_cents": 25000,
+          "currency": "USD",
+          "symbol": "$",
+          "display": "$250"
+        }
+      },
+      {
+        "region_code": "BR",
+        "rate": {
+          "amount": "250.00",
+          "amount_cents": 25000,
+          "currency": "USD",
+          "symbol": "$",
+          "display": "$250"
+        }
+      },
+      {
+        "region_code": "BG",
+        "rate": {
+          "amount": "250.00",
+          "amount_cents": 25000,
+          "currency": "USD",
+          "symbol": "$",
+          "display": "$250"
+        }
+      },
+      {
+        "region_code": "CA",
+        "rate": {
+          "amount": "125.00",
+          "amount_cents": 12500,
+          "currency": "USD",
+          "symbol": "$",
+          "display": "$125"
+        }
+      },
+      {
+        "region_code": "CN",
+        "rate": {
+          "amount": "250.00",
+          "amount_cents": 25000,
+          "currency": "USD",
+          "symbol": "$",
+          "display": "$250"
+        }
+      },
+      {
+        "region_code": "HR",
+        "rate": {
+          "amount": "200.00",
+          "amount_cents": 20000,
+          "currency": "USD",
+          "symbol": "$",
+          "display": "$200"
+        }
+      },
+      {
+        "region_code": "CZ",
+        "rate": {
+          "amount": "200.00",
+          "amount_cents": 20000,
+          "currency": "USD",
+          "symbol": "$",
+          "display": "$200"
+        }
+      },
+      {
+        "region_code": "DK",
+        "rate": {
+          "amount": "250.00",
+          "amount_cents": 25000,
+          "currency": "USD",
+          "symbol": "$",
+          "display": "$250"
+        }
+      },
+      {
+        "region_code": "EE",
+        "rate": {
+          "amount": "250.00",
+          "amount_cents": 25000,
+          "currency": "USD",
+          "symbol": "$",
+          "display": "$250"
+        }
+      },
+      {
+        "region_code": "FI",
+        "rate": {
+          "amount": "250.00",
+          "amount_cents": 25000,
+          "currency": "USD",
+          "symbol": "$",
+          "display": "$250"
+        }
+      },
+      {
+        "region_code": "FR",
+        "rate": {
+          "amount": "250.00",
+          "amount_cents": 25000,
+          "currency": "USD",
+          "symbol": "$",
+          "display": "$250"
+        }
+      },
+      {
+        "region_code": "DE",
+        "rate": {
+          "amount": "250.00",
+          "amount_cents": 25000,
+          "currency": "USD",
+          "symbol": "$",
+          "display": "$250"
+        }
+      },
+      {
+        "region_code": "GR",
+        "rate": {
+          "amount": "250.00",
+          "amount_cents": 25000,
+          "currency": "USD",
+          "symbol": "$",
+          "display": "$250"
+        }
+      },
+      {
+        "region_code": "IS",
+        "rate": {
+          "amount": "250.00",
+          "amount_cents": 25000,
+          "currency": "USD",
+          "symbol": "$",
+          "display": "$250"
+        }
+      },
+      {
+        "region_code": "IN",
+        "rate": {
+          "amount": "250.00",
+          "amount_cents": 25000,
+          "currency": "USD",
+          "symbol": "$",
+          "display": "$250"
+        }
+      },
+      {
+        "region_code": "ID",
+        "rate": {
+          "amount": "250.00",
+          "amount_cents": 25000,
+          "currency": "USD",
+          "symbol": "$",
+          "display": "$250"
+        }
+      },
+      {
+        "region_code": "IE",
+        "rate": {
+          "amount": "250.00",
+          "amount_cents": 25000,
+          "currency": "USD",
+          "symbol": "$",
+          "display": "$250"
+        }
+      },
+      {
+        "region_code": "IL",
+        "rate": {
+          "amount": "250.00",
+          "amount_cents": 25000,
+          "currency": "USD",
+          "symbol": "$",
+          "display": "$250"
+        }
+      },
+      {
+        "region_code": "IT",
+        "rate": {
+          "amount": "250.00",
+          "amount_cents": 25000,
+          "currency": "USD",
+          "symbol": "$",
+          "display": "$250"
+        }
+      },
+      {
+        "region_code": "JP",
+        "rate": {
+          "amount": "200.00",
+          "amount_cents": 20000,
+          "currency": "USD",
+          "symbol": "$",
+          "display": "$200"
+        }
+      },
+      {
+        "region_code": "KR",
+        "rate": {
+          "amount": "200.00",
+          "amount_cents": 20000,
+          "currency": "USD",
+          "symbol": "$",
+          "display": "$200"
+        }
+      },
+      {
+        "region_code": "LV",
+        "rate": {
+          "amount": "250.00",
+          "amount_cents": 25000,
+          "currency": "USD",
+          "symbol": "$",
+          "display": "$250"
+        }
+      },
+      {
+        "region_code": "LT",
+        "rate": {
+          "amount": "250.00",
+          "amount_cents": 25000,
+          "currency": "USD",
+          "symbol": "$",
+          "display": "$250"
+        }
+      },
+      {
+        "region_code": "LU",
+        "rate": {
+          "amount": "200.00",
+          "amount_cents": 20000,
+          "currency": "USD",
+          "symbol": "$",
+          "display": "$200"
+        }
+      },
+      {
+        "region_code": "MT",
+        "rate": {
+          "amount": "250.00",
+          "amount_cents": 25000,
+          "currency": "USD",
+          "symbol": "$",
+          "display": "$250"
+        }
+      },
+      {
+        "region_code": "MX",
+        "rate": {
+          "amount": "125.00",
+          "amount_cents": 12500,
+          "currency": "USD",
+          "symbol": "$",
+          "display": "$125"
+        }
+      },
+      {
+        "region_code": "NL",
+        "rate": {
+          "amount": "250.00",
+          "amount_cents": 25000,
+          "currency": "USD",
+          "symbol": "$",
+          "display": "$250"
+        }
+      },
+      {
+        "region_code": "NZ",
+        "rate": {
+          "amount": "250.00",
+          "amount_cents": 25000,
+          "currency": "USD",
+          "symbol": "$",
+          "display": "$250"
+        }
+      },
+      {
+        "region_code": "NO",
+        "rate": {
+          "amount": "250.00",
+          "amount_cents": 25000,
+          "currency": "USD",
+          "symbol": "$",
+          "display": "$250"
+        }
+      },
+      {
+        "region_code": "PL",
+        "rate": {
+          "amount": "250.00",
+          "amount_cents": 25000,
+          "currency": "USD",
+          "symbol": "$",
+          "display": "$250"
+        }
+      },
+      {
+        "region_code": "PT",
+        "rate": {
+          "amount": "250.00",
+          "amount_cents": 25000,
+          "currency": "USD",
+          "symbol": "$",
+          "display": "$250"
+        }
+      },
+      {
+        "region_code": "RU",
+        "rate": {
+          "amount": "250.00",
+          "amount_cents": 25000,
+          "currency": "USD",
+          "symbol": "$",
+          "display": "$250"
+        }
+      },
+      {
+        "region_code": "SK",
+        "rate": {
+          "amount": "250.00",
+          "amount_cents": 25000,
+          "currency": "USD",
+          "symbol": "$",
+          "display": "$250"
+        }
+      },
+      {
+        "region_code": "SI",
+        "rate": {
+          "amount": "250.00",
+          "amount_cents": 25000,
+          "currency": "USD",
+          "symbol": "$",
+          "display": "$250"
+        }
+      },
+      {
+        "region_code": "ZA",
+        "rate": {
+          "amount": "250.00",
+          "amount_cents": 25000,
+          "currency": "USD",
+          "symbol": "$",
+          "display": "$250"
+        }
+      },
+      {
+        "region_code": "ES",
+        "rate": {
+          "amount": "250.00",
+          "amount_cents": 25000,
+          "currency": "USD",
+          "symbol": "$",
+          "display": "$250"
+        }
+      },
+      {
+        "region_code": "SE",
+        "rate": {
+          "amount": "200.00",
+          "amount_cents": 20000,
+          "currency": "USD",
+          "symbol": "$",
+          "display": "$200"
+        }
+      },
+      {
+        "region_code": "CH",
+        "rate": {
+          "amount": "250.00",
+          "amount_cents": 25000,
+          "currency": "USD",
+          "symbol": "$",
+          "display": "$250"
+        }
+      },
+      {
+        "region_code": "GB",
+        "rate": {
+          "amount": "250.00",
+          "amount_cents": 25000,
+          "currency": "USD",
+          "symbol": "$",
+          "display": "$250"
+        }
+      },
+      {
+        "region_code": "US",
+        "rate": {
+          "amount": "75.00",
+          "amount_cents": 7500,
+          "currency": "USD",
+          "symbol": "$",
+          "display": "$75"
+        }
+      },
+      {
+        "region_code": "VN",
+        "rate": {
+          "amount": "250.00",
+          "amount_cents": 25000,
+          "currency": "USD",
+          "symbol": "$",
+          "display": "$250"
+        }
+      },
+      {
+        "region_code": "XX",
+        "rate": {
+          "amount": "275.00",
+          "amount_cents": 27500,
+          "currency": "USD",
+          "symbol": "$",
+          "display": "$275"
+        }
+      }
+    ],
+    "user_region_rate": {
+      "region_code": "US_CON",
+      "rate": {
+        "amount": "75.00",
+        "amount_cents": 7500,
+        "currency": "USD",
+        "symbol": "$",
+        "display": "$75"
+      }
+    },
+    "initial_offer_rate": {
+      "region_code": "US_CON",
+      "rate": {
+        "original": {
+          "amount": "75.00",
+          "amount_cents": 7500,
+          "currency": "USD",
+          "symbol": "$",
+          "display": "$75"
+        },
+        "display": {
+          "amount": "75.00",
+          "amount_cents": 7500,
+          "currency": "USD",
+          "symbol": "$",
+          "display": "$75"
+        }
+      }
+    },
+    "free_expedited_shipping": false
+  },
+  "stats": {
+    "views": 884,
+    "watches": 50
+  },
+  "slug": "45583029-jackson-custom-shop-usa-king-v-kv2-1-hum-24-fret-goat-skull-2017-w-original-jackson-hsc",
+  "photos": [
+    {
+      "_links": {
+        "large_crop": {
+          "href": "https://images.reverb.com/image/upload/s--QOFXeunj--/c_crop,h_1.000,w_0.912,x_0.050,y_0.000/f_auto,t_large/v1634173865/unxniz89pixulqntqaor.jpg"
+        },
+        "small_crop": {
+          "href": "https://images.reverb.com/image/upload/s--7nwW9noa--/c_crop,h_1.000,w_0.912,x_0.050,y_0.000/t_card-square/v1634173865/unxniz89pixulqntqaor.jpg"
+        },
+        "full": {
+          "href": "https://images.reverb.com/image/upload/s--QOFXeunj--/c_crop,h_1.000,w_0.912,x_0.050,y_0.000/f_auto,t_large/v1634173865/unxniz89pixulqntqaor.jpg"
+        },
+        "thumbnail": {
+          "href": "https://images.reverb.com/image/upload/s--7nwW9noa--/c_crop,h_1.000,w_0.912,x_0.050,y_0.000/t_card-square/v1634173865/unxniz89pixulqntqaor.jpg"
+        }
+      }
+    }
+  ],
+  "_links": {
+    "photo": {
+      "href": "https://images.reverb.com/image/upload/s--QOFXeunj--/c_crop,h_1.000,w_0.912,x_0.050,y_0.000/f_auto,t_large/v1634173865/unxniz89pixulqntqaor.jpg"
+    },
+    "self": {
+      "href": "https://api.reverb.com/api/listings/45583029-jackson-custom-shop-usa-king-v-kv2-1-hum-24-fret-goat-skull-2017-w-original-jackson-hsc"
+    },
+    "update": {
+      "method": "PUT",
+      "href": "https://api.reverb.com/api/listings/45583029-jackson-custom-shop-usa-king-v-kv2-1-hum-24-fret-goat-skull-2017-w-original-jackson-hsc"
+    },
+    "bump": {
+      "method": "GET",
+      "href": "https://api.reverb.com/api/listings/45583029/bump"
+    },
+    "end": {
+      "method": "PUT",
+      "href": "https://api.reverb.com/api/my/listings/45583029-jackson-custom-shop-usa-king-v-kv2-1-hum-24-fret-goat-skull-2017-w-original-jackson-hsc/state/end"
+    },
+    "want": {
+      "method": "PUT",
+      "href": "https://api.reverb.com/api/wants/45583029-jackson-custom-shop-usa-king-v-kv2-1-hum-24-fret-goat-skull-2017-w-original-jackson-hsc"
+    },
+    "unwant": {
+      "method": "DELETE",
+      "href": "https://api.reverb.com/api/wants/45583029-jackson-custom-shop-usa-king-v-kv2-1-hum-24-fret-goat-skull-2017-w-original-jackson-hsc"
+    },
+    "edit": {
+      "href": "https://api.reverb.com/api/listings/45583029-jackson-custom-shop-usa-king-v-kv2-1-hum-24-fret-goat-skull-2017-w-original-jackson-hsc/edit"
+    },
+    "web": {
+      "href": "https://reverb.com/item/45583029-jackson-custom-shop-usa-king-v-kv2-1-hum-24-fret-goat-skull-2017-w-original-jackson-hsc"
+    },
+    "make_offer": {
+      "method": "POST",
+      "href": "https://api.reverb.com/api/listings/45583029-jackson-custom-shop-usa-king-v-kv2-1-hum-24-fret-goat-skull-2017-w-original-jackson-hsc/offer"
+    },
+    "add_to_wishlist": {
+      "method": "POST",
+      "href": "https://api.reverb.com/api/my/wishlist/45583029-jackson-custom-shop-usa-king-v-kv2-1-hum-24-fret-goat-skull-2017-w-original-jackson-hsc"
+    },
+    "remove_from_wishlist": {
+      "method": "DELETE",
+      "href": "https://api.reverb.com/api/my/wishlist/45583029-jackson-custom-shop-usa-king-v-kv2-1-hum-24-fret-goat-skull-2017-w-original-jackson-hsc"
+    },
+    "cart": {
+      "href": "https://api.reverb.com/api/cart/45583029"
+    }
+  }
+}

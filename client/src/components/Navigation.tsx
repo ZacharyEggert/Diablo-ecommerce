@@ -23,6 +23,7 @@ export default function Navigation() {
         // { name: 'Contact', href: '/contact' },
         { name: 'Reverb', href: '/reverb-listings' },
         { name: 'Inventory', href: '/inventory-management' },
+        { name: 'Admin', href: '/admin' },
     ];
 
     const [navigation, setNavigation] = useState(defaultNavigation);

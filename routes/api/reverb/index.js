@@ -8,7 +8,10 @@ router.route('/')
 router.route('/:id')
     .get(reverbController.findById);
 
-router.route('/update')
-    .post(reverbController.update);
+router.route('/import/all')
+    .post(reverbController.updateAll);
+
+router.route('/import/recent')
+    .post(reverbController.updateRecent);
 
 module.exports = router;

@@ -8,3 +8,11 @@ export const getReverbPosts = () => {
 export const getOneReverbPost = (id: (string | number)) => {
     return axios.get(`/api/reverb/${id}`);
 };
+
+export const importReverbPosts = () => {
+    return axios.post('/api/reverb/import/all');
+}
+
+export const importReverbPostsRecent = () => {
+    return axios.post('/api/reverb/import/recent');
+}
