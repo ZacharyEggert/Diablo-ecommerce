@@ -3,66 +3,369 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const reverbSchema = new Schema({
-    state: {type: String, required: true},
-    new_listing: {type: String, required: true},
-    title: {type: String, required: true},
-    condition: {type: String, required: true},
-    inventory: {type: Number, required: true},
-    sku: {type: String, required: true},
-    make: {type: String, required: true},
-    model: {type: String, required: true},
-    description: {type: String, required: true},
-    year: {type: String, required: true},
-    finish: {type: String, required: true},
-    price: {type: String, required: true},
-    product_type: {type: String, required: true},
-    subcategory_1: {type: String, required: true},
-    subcategory_2: {type: String, required: true},
-    product_image_1: {type: String, required: true},
-    product_image_2: {type: String, required: true},
-    product_image_3: {type: String, required: true},
-    product_image_4: {type: String, required: true},
-    product_image_5: {type: String, required: true},
-    product_image_6: {type: String, required: true},
-    product_image_7: {type: String, required: true},
-    product_image_8: {type: String, required: true},
-    product_image_9: {type: String, required: true},
-    product_image_10: {type: String, required: true},
-    product_image_11: {type: String, required: true},
-    product_image_12: {type: String, required: true},
-    product_image_13: {type: String, required: true},
-    product_image_14: {type: String, required: true},
-    product_image_15: {type: String, required: true},
-    product_image_16: {type: String, required: true},
-    product_image_17: {type: String, required: true},
-    product_image_18: {type: String, required: true},
-    product_image_19: {type: String, required: true},
-    product_image_20: {type: String, required: true},
-    product_image_21: {type: String, required: true},
-    product_image_22: {type: String, required: true},
-    product_image_23: {type: String, required: true},
-    product_image_24: {type: String, required: true},
-    product_image_25: {type: String, required: true},
-    video_url: {type: String, required: true},
-    offers_enabled: {type: String, required: true},
-    shipping_price: {type: String, required: true},
-    combine_and_save_shipping_price: {type: String, required: true},
-    local_pickup: {type: String, required: true},
-    shipping_profile_name: {type: String, required: true},
-    seller_cost: {type: String, required: true},
-    tax_exempt: {type: String, required: true},
-    upc: {type: String, required: true},
-    upc_does_not_apply: {type: String, required: true},
-    published_at: {type: String, required: true},
-    url: {type: String, required: true},
-    prop_65_warning: {type: String, required: true},
-    id: {type: String, required: true},
-    preorder_lead_time: {type: String, required: true},
-    preorder_ship_date: {type: String, required: true},
-    bump_rate: {type: String, required: true},
-    bump_rate_recommendation: {type: String, required: true},
-    sold_as_is: {type: String, required: true},
-    country_of_origin: {type: String, required: true},
+    id: {
+        type: 'Number',
+        index: { unique: true },
+        required: true,
+    },
+    make: {
+        type: 'String',
+    },
+    model: {
+        type: 'String',
+    },
+    finish: {
+        type: 'String',
+    },
+    year: {
+        type: 'String',
+    },
+    title: {
+        type: 'String',
+    },
+    created_at: {
+        type: 'String',
+    },
+    shop_name: {
+        type: 'String',
+    },
+    description: {
+        type: 'String',
+    },
+    condition: {
+        uuid: {
+            type: 'String',
+        },
+        display_name: {
+            type: 'String',
+        },
+        description: {
+            type: 'String',
+        },
+    },
+    price: {
+        amount: {
+            type: 'String',
+        },
+        amount_cents: {
+            type: 'Number',
+        },
+        currency: {
+            type: 'String',
+        },
+        symbol: {
+            type: 'String',
+        },
+        display: {
+            type: 'String',
+        },
+    },
+    inventory: {
+        type: 'Number',
+    },
+    hasInventory: {
+        type: 'Boolean',
+    },
+    offers_enabled: {
+        type: 'Boolean',
+    },
+    auction: {
+        type: 'Boolean',
+    },
+    categories: [
+        {
+            uuid: {
+                type: 'String',
+            },
+            full_name: {
+                type: 'String',
+            },
+        }
+    ],
+    listingCurrency: {
+        type: 'String',
+    },
+    published_at: {
+        type: 'String',
+    },
+    buyer_price: {
+        amount: {
+            type: 'String',
+        },
+        amount_cents: {
+            type: 'Number',
+        },
+        currency: {
+            type: 'String',
+        },
+        symbol: {
+            type: 'String',
+        },
+        display: {
+            type: 'String',
+        },
+        tax_included_hint: {
+            type: 'String',
+        },
+        tax_included: {
+            type: 'Boolean',
+        },
+        tax_included_rate: {
+            type: 'Number',
+        },
+    },
+    seller_price: {
+        amount: {
+            type: 'String',
+        },
+        amount_cents: {
+            type: 'Number',
+        },
+        currency: {
+            type: 'String',
+        },
+        symbol: {
+            type: 'String',
+        },
+        display: {
+            type: 'String',
+        },
+    },
+    state: {
+        slug: {
+            type: 'String',
+        },
+        description: {
+            type: 'String',
+        },
+    },
+    shipping_profile_id: {
+        type: 'Number',
+    },
+    shipping: {
+        local: {
+            type: 'Boolean',
+        },
+        rates: [
+            {
+                region_code: {
+                    type: 'String',
+                },
+                rate: {
+                    amount: {
+                        type: 'String',
+                    },
+                    amount_cents: {
+                        type: 'Number',
+                    },
+                    currency: {
+                        type: 'String',
+                    },
+                    symbol: {
+                        type: 'String',
+                    },
+                    display: {
+                        type: 'String',
+                    },
+                },
+            },
+        ],
+        user_region_rate: {
+            region_code: {
+                type: 'String',
+            },
+            rate: {
+                amount: {
+                    type: 'String',
+                },
+                amount_cents: {
+                    type: 'Number',
+                },
+                currency: {
+                    type: 'String',
+                },
+                symbol: {
+                    type: 'String',
+                },
+                display: {
+                    type: 'String',
+                },
+            },
+        },
+        initial_offer_rate: {
+            region_code: {
+                type: 'String',
+            },
+            rate: {
+                original: {
+                    amount: {
+                        type: 'String',
+                    },
+                    amount_cents: {
+                        type: 'Number',
+                    },
+                    currency: {
+                        type: 'String',
+                    },
+                    symbol: {
+                        type: 'String',
+                    },
+                    display: {
+                        type: 'String',
+                    },
+                },
+                display: {
+                    amount: {
+                        type: 'String',
+                    },
+                    amount_cents: {
+                        type: 'Number',
+                    },
+                    currency: {
+                        type: 'String',
+                    },
+                    symbol: {
+                        type: 'String',
+                    },
+                    display: {
+                        type: 'String',
+                    },
+                },
+            },
+        },
+        free_expedited_shipping: {
+            type: 'Boolean',
+        },
+    },
+    stats: {
+        views: {
+            type: 'Number',
+        },
+        watches: {
+            type: 'Number',
+        },
+    },
+    slug: {
+        type: 'String',
+    },
+    photos: [
+        {
+            _links: {
+                large_crop: {
+                    href: {
+                        type: 'String',
+                    },
+                },
+                small_crop: {
+                    href: {
+                        type: 'String',
+                    },
+                },
+                full: {
+                    href: {
+                        type: 'String',
+                    },
+                },
+                thumbnail: {
+                    href: {
+                        type: 'String',
+                    },
+                },
+            },
+        },
+    ],
+    _links: {
+        photo: {
+            href: {
+                type: 'String',
+            },
+        },
+        self: {
+            href: {
+                type: 'String',
+            },
+        },
+        update: {
+            method: {
+                type: 'String',
+            },
+            href: {
+                type: 'String',
+            },
+        },
+        bump: {
+            method: {
+                type: 'String',
+            },
+            href: {
+                type: 'String',
+            },
+        },
+        end: {
+            method: {
+                type: 'String',
+            },
+            href: {
+                type: 'String',
+            },
+        },
+        want: {
+            method: {
+                type: 'String',
+            },
+            href: {
+                type: 'String',
+            },
+        },
+        unwant: {
+            method: {
+                type: 'String',
+            },
+            href: {
+                type: 'String',
+            },
+        },
+        edit: {
+            href: {
+                type: 'String',
+            },
+        },
+        web: {
+            href: {
+                type: 'String',
+            },
+        },
+        make_offer: {
+            method: {
+                type: 'String',
+            },
+            href: {
+                type: 'String',
+            },
+        },
+        add_to_wishlist: {
+            method: {
+                type: 'String',
+            },
+            href: {
+                type: 'String',
+            },
+        },
+        remove_from_wishlist: {
+            method: {
+                type: 'String',
+            },
+            href: {
+                type: 'String',
+            },
+        },
+        cart: {
+            href: {
+                type: 'String',
+            },
+        },
+    },
+    
 });
 
 const Reverb = mongoose.model('Reverb', reverbSchema);

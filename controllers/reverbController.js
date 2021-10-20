@@ -1,5 +1,5 @@
 const ReverbApiClient = require('@zacharyeggert/reverb-api').default;
-const fs = require('fs');
+// const fs = require('fs');
 
 const db = require('../models');
 
@@ -16,22 +16,30 @@ module.exports = {
         //update the reverb table with the new reverb posts
         //if the reverb post is already in the table, do nothing
         //if the reverb post is not in the table, add it to the table
-        fs.writeFileSync('reverbExports/listingsRecent.json', JSON.stringify(listings, null, 2));
+        // fs.writeFileSync('reverbExports/listingsRecent.json', JSON.stringify(listings, null, 2));
         //return the updated reverb table
     },
 
     updateAll: async function (req, res) {
         //fetch reverb posts from the reverb api
         const reverb = new ReverbApiClient(process.env.REVERB_API_KEY);
-        res.json({message: 'updating reverb table'});
+        // res.json({message: 'updating reverb table'});
 
         const listings = await reverb.getMyListings();
         console.log(`fetched ${listings.length} listings`);
 
+        db.Reverb.deleteMany({where: {}});
+        db.Reverb.insertMany(listings).then(() => {
+            res.json({message: 'updated reverb table'});
+        }).catch(err => {
+            console.error(err);
+            res.json({message: 'error updating reverb table'});
+        });
+
         //update the reverb table with the new reverb posts
         //if the reverb post is already in the table, do nothing
         //if the reverb post is not in the table, add it to the table
-        fs.writeFileSync('reverbExports/listings.json', JSON.stringify(listings, null, 2));
+        // fs.writeFileSync('reverbExports/listings.json', JSON.stringify(listings, null, 2));
         //return the updated reverb table
     },
 

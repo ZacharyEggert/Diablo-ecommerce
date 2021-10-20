@@ -28,7 +28,7 @@ const ShopView = (props:IShopViewProps) => {
     
             <div className="grid grid-cols-1 gap-y-10 sm:grid-cols-2 gap-x-6 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">
               {inventory.filter((item) => {
-                  return item.title.toLowerCase().includes(searchTerm.toLowerCase())
+                  return item.title?.toLowerCase().includes(searchTerm.toLowerCase())
               }).slice(itemsPerPage*(pageNumber-1), itemsPerPage*(pageNumber)).map((product:Item) => (
                 <ProductCard key={product.id} product={product}/>
               ))}

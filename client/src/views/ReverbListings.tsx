@@ -43,7 +43,7 @@ const ReverbListings = (props:any) => {
                         totalItems={
                             reverbInventory.filter((item) => {
                                 return item.title
-                                    .toLowerCase()
+                                    ?.toLowerCase()
                                     .includes(searchTerm.toLowerCase());
                             }).length
                         }

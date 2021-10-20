@@ -282,7 +282,13 @@ export default function ProductView() {
     const i:Item = {
         id: -1,
         title: '',
-        price: 0,
+        price: {
+            amount: '0',
+            amount_cents:0,
+            currency: 'USD',
+            symbol: '$',
+            display: '$0',
+        },
         description: '',
         product_image_1: '',
         stock: 0,

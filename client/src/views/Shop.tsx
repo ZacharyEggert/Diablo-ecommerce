@@ -25,7 +25,7 @@ const Shop = (props: IShop) => {
                 />
             </div>
             <div className='container mx-auto'>
-                <ShopView inventory={inventory.filter((item) => {return !item.category?.toLowerCase().includes('merch')})} searchTerm={searchTerm} />
+                <ShopView inventory={inventory.filter((item) => {return !item.categories?.map((category)=>category.full_name.toLowerCase()).includes('merch')})} searchTerm={searchTerm} />
             </div>
             <Footer />
         </div>
