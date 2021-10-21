@@ -65,7 +65,7 @@ const App = () => {
         });
 
         validateUser()
-            .then((res) => {
+            .then((res:any) => {
                 // console.log(res.data);
                 if (res.status === 200 && res.data?.email) {
                     dispatch({

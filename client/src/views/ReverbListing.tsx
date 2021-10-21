@@ -37,7 +37,7 @@ const ReverbListing = () => {
 
     useEffect(() => {
         getOneReverbPost(params.id)
-            .then((res) => {
+            .then((res:any) => {
                 console.log(res);
                 setProduct(res.data);
             })

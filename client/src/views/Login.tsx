@@ -18,7 +18,7 @@ const Login: React.FC<ILoginProps> = () => {
         const email = e.currentTarget.email.value;
         const password = e.currentTarget.password.value;
         // console.log(email, password);
-        login(email, password).then((res) => {
+        login(email, password).then((res:any) => {
             if (res.data?.error) return console.error(res.data);
             if(res.data?.user) {
                 console.log('login success');

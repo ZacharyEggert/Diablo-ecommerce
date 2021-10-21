@@ -27,9 +27,9 @@ const ReverbListings = (props:any) => {
     const [reverbInventory, setReverbInventory] = React.useState<Item[]>(initialItems);
 
     React.useEffect(() => {
-        getReverbPosts().then((response) => {
-            console.log(response.data);
-            setReverbInventory(response.data);
+        getReverbPosts().then((res:any) => {
+            console.log(res.data);
+            setReverbInventory(res.data);
         });
     }, []);
 
