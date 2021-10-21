@@ -380,7 +380,13 @@ export default function ProductView() {
                                                 className='object-cover object-center w-full h-full sm:rounded-lg'
                                                 onClick={() => {
                                                     //open a new tab with the image
-                                                    product.cloudinary_photos && window.open(product.cloudinary_photos[index].preview_url);
+                                                    product.cloudinary_photos &&
+                                                        window.open(
+                                                            product
+                                                                .cloudinary_photos[
+                                                                index
+                                                            ].preview_url
+                                                        );
                                                 }}
                                             />
                                         </Tab.Panel>
