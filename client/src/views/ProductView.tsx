@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { Tab } from '@headlessui/react';
 import PageWrapper from '../wrappers/PageWrapper';
 import Item from '../interfaces/item';
-import { getOneItem } from '../api/item'
+import { getOneItem } from '../api/item';
 import { useParams } from 'react-router';
 
 function classNames(...classes: string[]) {
@@ -279,12 +279,12 @@ function classNames(...classes: string[]) {
 // ];
 
 export default function ProductView() {
-    const i:Item = {
+    const i: Item = {
         id: -1,
         title: '',
         price: {
             amount: '0',
-            amount_cents:0,
+            amount_cents: 0,
             currency: 'USD',
             symbol: '$',
             display: '$0',
@@ -294,7 +294,7 @@ export default function ProductView() {
         stock: 0,
         category: '',
     };
-    
+
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const [product, setProduct] = useState<Item>(i);
 
@@ -304,16 +304,13 @@ export default function ProductView() {
 
     const params = useParams<expectedParams>();
 
-
     useEffect(() => {
-        getOneItem(params.id)
-        .then((res) => {
+        getOneItem(params.id).then((res) => {
             console.log(res);
         });
-        
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [])
 
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
 
     return (
         <PageWrapper>
@@ -325,13 +322,13 @@ export default function ProductView() {
                             {/* Image selector */}
                             <div className='hidden w-full max-w-2xl mx-auto mt-6 sm:block lg:max-w-none'>
                                 <Tab.List className='grid grid-cols-4 gap-6'>
-                                    {Object.keys(product)
-                                        .filter((key) =>
-                                            key.includes('product_image')
+                                    {product.photos
+                                        ?.map(
+                                            (photo) =>
+                                                photo._links?.small_crop?.href
                                         )
-                                        .map((key: string) => product[key])
                                         .map((image) => (
-                                            typeof image === 'string' && (<Tab
+                                            <Tab
                                                 key={image + '_Photo'}
                                                 className='relative flex items-center justify-center h-24 text-sm font-medium text-gray-900 uppercase bg-white rounded-md cursor-pointer hover:bg-gray-50 focus:outline-none focus:ring focus:ring-offset-4 focus:ring-opacity-50'>
                                                 {({ selected }) => (
@@ -359,26 +356,26 @@ export default function ProductView() {
                                                         />
                                                     </>
                                                 )}
-                                            </Tab>)
+                                            </Tab>
                                         ))}
                                 </Tab.List>
                             </div>
 
                             <Tab.Panels className='w-full aspect-w-1 aspect-h-1'>
-                                {Object.keys(product)
-                                        .filter((key) =>
-                                            key.includes('product_image')
-                                        )
-                                        .map((key: string) => product[key])
-                                        .map((image) => (
-                                            typeof image === 'string' && <Tab.Panel key={image + '_panel'}>
-                                        <img
-                                            src={image}
-                                            alt={image}
-                                            className='object-cover object-center w-full h-full sm:rounded-lg'
-                                        />
-                                    </Tab.Panel>
-                                ))}
+                                {product.photos
+                                    ?.map(
+                                        (photo) =>
+                                            photo._links?.small_crop?.href
+                                    )
+                                    .map((image) => (
+                                        <Tab.Panel key={image + '_panel'}>
+                                            <img
+                                                src={image}
+                                                alt={image}
+                                                className='object-cover object-center w-full h-full sm:rounded-lg'
+                                            />
+                                        </Tab.Panel>
+                                    ))}
                             </Tab.Panels>
                         </Tab.Group>
 
@@ -391,11 +388,9 @@ export default function ProductView() {
                             <div className='mt-3'>
                                 <h2 className='sr-only'>Product information</h2>
                                 <p className='text-3xl text-grey-200'>
-                                    {product.price}
+                                    {product.price?.display}
                                 </p>
                             </div>
-
-                            
 
                             <div className='mt-6'>
                                 <h3 className='sr-only'>Description</h3>

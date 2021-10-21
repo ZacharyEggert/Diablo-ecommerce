@@ -14,6 +14,7 @@ import Admin from './views/Admin';
 import { useDispatch } from 'react-redux';
 import { validateUser } from './api/user';
 import ProductView from './views/ProductView';
+import ReverbListing from './views/ReverbListing';
 
 const App = () => {
     const dispatch = useDispatch();
@@ -98,6 +99,9 @@ const App = () => {
                 </Route>
                 <Route path='/product/:id'>
                     <ProductView />
+                </Route>
+                <Route path='/reverb-product/:id'>
+                    <ReverbListing />
                 </Route>
                 <Route path='*'>
                     <NotFound />

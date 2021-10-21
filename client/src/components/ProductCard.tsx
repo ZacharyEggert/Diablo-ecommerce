@@ -4,11 +4,13 @@ import Item from '../interfaces/item';
 
 interface IProductCardProps {
     product: Item;
+    reverb: boolean;
 }
 
-const ProductCard = ({ product }:IProductCardProps) => {
+const ProductCard = ({ product, reverb }:IProductCardProps) => {
+
     return (
-        <Link to={`/product/${product._id}`} className='group'>
+        <Link to={`/${reverb?'reverb-product':'product'}/${product._id}`} className='group'>
             <div className='w-full overflow-hidden rounded-lg bg-grey-400 aspect-w-1 aspect-h-1'>
                 <div className='relative pb-[100%]'>
                     <img

@@ -30,7 +30,7 @@ const ShopView = (props:IShopViewProps) => {
               {inventory.filter((item) => {
                   return item.title?.toLowerCase().includes(searchTerm.toLowerCase())
               }).slice(itemsPerPage*(pageNumber-1), itemsPerPage*(pageNumber)).map((product:Item) => (
-                <ProductCard key={product.id} product={product}/>
+                <ProductCard key={product.id} product={product} reverb={true}/>
               ))}
             </div>
           </div>

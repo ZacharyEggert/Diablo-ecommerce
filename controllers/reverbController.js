@@ -8,7 +8,7 @@ module.exports = {
     updateRecent: async function (req, res) {
         //fetch reverb posts from the reverb api
         const reverb = new ReverbApiClient(process.env.REVERB_API_KEY);
-        res.json({message: 'updating reverb table'});
+        res.json({ message: 'updating reverb table' });
 
         const listings = await reverb.getMyListingsRecent();
         console.log(`fetched ${listings.length} listings`);
@@ -25,16 +25,18 @@ module.exports = {
         const reverb = new ReverbApiClient(process.env.REVERB_API_KEY);
         // res.json({message: 'updating reverb table'});
 
-        const listings = await reverb.getMyListings();
-        console.log(`fetched ${listings.length} listings`);
+        console.debug('fetching listings');
+        const listings = reverb.getMyListings();
 
-        db.Reverb.deleteMany({where: {}});
-        db.Reverb.insertMany(listings).then(() => {
-            res.json({message: 'updated reverb table'});
-        }).catch(err => {
-            console.error(err);
-            res.json({message: 'error updating reverb table'});
-        });
+        await db.Reverb.deleteMany({});
+        db.Reverb.insertMany(await listings)
+            .then(() => {
+                res.json({ message: 'updated reverb table' });
+            })
+            .catch((err) => {
+                console.error(err);
+                res.json({ message: 'error updating reverb table' });
+            });
 
         //update the reverb table with the new reverb posts
         //if the reverb post is already in the table, do nothing
@@ -54,6 +56,8 @@ module.exports = {
     findById: async function (req, res) {
         //find a single reverb post
         //return the reverb post
-        res.json();
+        db.Reverb.findById(req.params.id)
+            .then((dbReverb) => res.status(200).json(dbReverb))
+            .catch((err) => res.status(422).json(err));
     },
 };
