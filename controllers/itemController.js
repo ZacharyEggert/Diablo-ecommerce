@@ -90,6 +90,7 @@ module.exports = {
     clearAndImportFromReverb: function (req, res) {
         res.json({ message: 'This Will Take A While' });
         const ReverbClient = new ReverbApiClient(process.env.REVERB_API_KEY);
+
         db.Reverb.find({}).then((reverbItems) => {
             db.Item.find({})
                 .then((dbItems) => {
@@ -102,7 +103,7 @@ module.exports = {
                 })
                 .then((dbItems) => {
                     dbItems.forEach(async (dbItem) => {
-                        await dbItem.remove();
+                        await db.Item.findByIdAndDelete(dbItem._id);
                     });
                 })
                 .then(() => {

@@ -11,13 +11,36 @@ module.exports = {
         res.json({ message: 'updating reverb table' });
 
         const listings = await reverb.getMyListingsRecent();
-        console.debug(`fetched ${listings.length} listings`);
+        // console.debug(`fetched ${listings.length} listings`);
 
-        //update the reverb table with the new reverb posts
-        //if the reverb post is already in the table, do nothing
-        //if the reverb post is not in the table, add it to the table
-        // fs.writeFileSync('reverbExports/listingsRecent.json', JSON.stringify(listings, null, 2));
-        //return the updated reverb table
+        db.Reverb.find({})
+            .then((indexedReverbListings) =>
+                indexedReverbListings.map((listing) => listing.id)
+            )
+            .then((indexedReverbListingsIds) =>
+                listings.filter(
+                    (listing) => !indexedReverbListingsIds.includes(listing.id)
+                )
+            )
+            .then((newListings) => {
+                // console.debug(`found ${newListings.length} new listings`);
+                newListings.forEach(async (listing) => {
+                    await db.Reverb.create(newListings)
+                        .then(() => {
+                            console.debug(
+                                `added listing ${listing.id} to reverb table`
+                            );
+                        })
+                        .catch((err) => {
+                            console.error(err);
+                        });
+                });
+            }).then(() => {
+                console.debug('reverb table updated');
+            })
+            .catch((err) => {
+                console.error(err);
+            });
     },
 
     updateAll: async function (req, res) {

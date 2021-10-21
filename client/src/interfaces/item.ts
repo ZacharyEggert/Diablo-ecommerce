@@ -6,7 +6,7 @@ export default interface Item {
     model?: string;
     finish?: string;
     year?: string;
-    title?: string;
+    title: string;
     created_at?: string;
     shop_name?: string;
     description?: string;
