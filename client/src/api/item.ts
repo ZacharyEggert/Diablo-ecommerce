@@ -18,3 +18,9 @@ export const updateItem = (item: Item): Promise<any> => {
 export const deleteItem = (id: number | string): Promise<any> => {
     return axios.delete(`/api/item/${id}`);
 };
+export const importNewReverbPosts = (): Promise<any> => {
+    return axios.post('/api/item/import-reverb/new');
+};
+export const importAllReverbPosts = (): Promise<any> => {
+    return axios.post('/api/item/import-reverb/overwrite');
+};

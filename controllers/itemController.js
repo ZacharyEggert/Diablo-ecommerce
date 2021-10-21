@@ -51,4 +51,10 @@ module.exports = {
                 console.error(err);
             });
     },
+    importFromReverb: function (req, res) {
+        res.json({ message: 'Not implemented' });
+    },
+    clearAndImportFromReverb: function (req, res) {
+        res.json({ message: 'Not implemented' });
+    },
 };
