@@ -13,7 +13,7 @@ const Shop = (props: IShop) => {
 
     const history = useHistory();
 
-    const urlSetPageNumber = (pageNumber:number) => {
+    const urlSetPageNumber = (pageNumber: number) => {
         history.push({
             pathname: '/',
             search: `?page=${pageNumber}`,
@@ -31,11 +31,21 @@ const Shop = (props: IShop) => {
                     <Pagination
                         itemsPerPage={itemsPerPage}
                         totalItems={
-                            inventory.filter((item) => {
-                                return item.title
-                                    ?.toLowerCase()
-                                    .includes(searchTerm.toLowerCase());
-                            }).length
+                            inventory
+                                .filter((item) => {
+                                    return (
+                                        item.categories?.filter((category) =>
+                                            category.full_name
+                                                .toLowerCase()
+                                                .includes('merch')
+                                        ).length === 0
+                                    );
+                                })
+                                .filter((item) => {
+                                    return item.title
+                                        ?.toLowerCase()
+                                        .includes(searchTerm.toLowerCase());
+                                }).length
                         }
                         setPageNumber={urlSetPageNumber}
                         pageNumber={pageNumber}
@@ -54,15 +64,20 @@ const Shop = (props: IShop) => {
             </div>
             <div className='container mx-auto'>
                 <ShopView
-                    inventory={inventory.filter((item) => {
-                        return (
-                            item.categories?.filter((category) =>
-                                category.full_name
-                                    .toLowerCase()
-                                    .includes('merch')
-                            ).length === 0
-                        );
-                    }).sort((b, a) => a.price.amount_cents - b.price.amount_cents)}
+                    inventory={inventory
+                        .filter((item) => {
+                            return (
+                                item.categories?.filter((category) =>
+                                    category.full_name
+                                        .toLowerCase()
+                                        .includes('merch')
+                                ).length === 0
+                            );
+                        })
+                        .sort(
+                            (b, a) =>
+                                a.price.amount_cents - b.price.amount_cents
+                        )}
                     searchTerm={searchTerm}
                     pageNumber={pageNumber}
                     setPageNumber={urlSetPageNumber}
@@ -74,11 +89,21 @@ const Shop = (props: IShop) => {
                     <Pagination
                         itemsPerPage={itemsPerPage}
                         totalItems={
-                            inventory.filter((item) => {
-                                return item.title
-                                    ?.toLowerCase()
-                                    .includes(searchTerm.toLowerCase());
-                            }).length
+                            inventory
+                                .filter((item) => {
+                                    return (
+                                        item.categories?.filter((category) =>
+                                            category.full_name
+                                                .toLowerCase()
+                                                .includes('merch')
+                                        ).length === 0
+                                    );
+                                })
+                                .filter((item) => {
+                                    return item.title
+                                        ?.toLowerCase()
+                                        .includes(searchTerm.toLowerCase());
+                                }).length
                         }
                         setPageNumber={urlSetPageNumber}
                         pageNumber={pageNumber}
