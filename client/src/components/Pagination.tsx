@@ -49,7 +49,7 @@ const Pagination = ({
                             pageNumber + 2,
                         ].map(
                             (page) =>
-                                page < lastPage && (
+                                page <= lastPage && (
                                     <li key={page} className='page-item'>
                                         <button
                                             className={'page-link' + (pageNumber === page ? ' bg-grey-600' : '')}
