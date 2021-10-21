@@ -15,12 +15,12 @@ export default interface Item {
         display_name?: string;
         description?: string;
     };
-    price?: {
-        amount?: string;
-        amount_cents?: number;
+    price: {
+        amount: string;
+        amount_cents: number;
         currency?: string;
-        symbol?: string;
-        display?: string;
+        symbol: string;
+        display: string;
     };
     inventory?: number;
     offers_enabled?: boolean;

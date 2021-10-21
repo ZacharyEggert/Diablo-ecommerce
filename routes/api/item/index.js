@@ -1,6 +1,5 @@
 const router = require('express').Router();
 
-const { importFromReverb, clearAndImportFromReverb } = require('../../../controllers/itemController');
 const itemController = require('../../../controllers/itemController');
 
 router.route('/')
@@ -13,9 +12,9 @@ router.route('/:id')
     .delete(itemController.remove);
 
 router.route('/import-reverb/new')
-    .post(importFromReverb);
+    .post(itemController.importFromReverb);
 
 router.route('/import-reverb/overwrite')
-    .post(clearAndImportFromReverb);
+    .post(itemController.clearAndImportFromReverb);
 
 module.exports = router;

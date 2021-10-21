@@ -1,14 +1,11 @@
-import React, { useState } from "react";
-import Footer from "../components/Footer";
-import Navigation from "../components/Navigation";
-import ShopView from "../components/ShopView";
-import IShop from "../interfaces/shop";
-
-
+import React, { useState } from 'react';
+import Footer from '../components/Footer';
+import Navigation from '../components/Navigation';
+import ShopView from '../components/ShopView';
+import IShop from '../interfaces/shop';
 
 const Merchandise = (props: IShop) => {
-
-    const [searchTerm, setSearchTerm] = useState("");
+    const [searchTerm, setSearchTerm] = useState('');
 
     const { inventory } = props;
 
@@ -26,12 +23,26 @@ const Merchandise = (props: IShop) => {
                 />
             </div>
             <div className='container mx-auto'>
-                <ShopView inventory={inventory.filter((item) => {return item.category?.toLowerCase().includes('merch')})} searchTerm={searchTerm} />
+                <ShopView
+                    inventory={inventory.filter((item) => {
+                        return (
+                            item.categories?.filter((category) =>
+                                category.full_name
+                                    .toLowerCase()
+                                    .includes('merch')
+                            ).length !== 0
+                        );
+                    })}
+                    searchTerm={searchTerm}
+                    itemsPerPage={50}
+                    setPageNumber={() => {}}
+                    pageNumber={1}
+                    
+                />
             </div>
             <Footer />
         </div>
     );
-}
-
+};
 
 export default Merchandise;

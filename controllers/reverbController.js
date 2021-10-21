@@ -11,7 +11,7 @@ module.exports = {
         res.json({ message: 'updating reverb table' });
 
         const listings = await reverb.getMyListingsRecent();
-        console.log(`fetched ${listings.length} listings`);
+        console.debug(`fetched ${listings.length} listings`);
 
         //update the reverb table with the new reverb posts
         //if the reverb post is already in the table, do nothing
