@@ -8,6 +8,9 @@ router.route('/')
 router.route('/:id')
     .get(reverbController.findById);
 
+router.route('/import/:id')
+    .get(reverbController.importById);
+
 router.route('/import/all')
     .post(reverbController.updateAll);
 

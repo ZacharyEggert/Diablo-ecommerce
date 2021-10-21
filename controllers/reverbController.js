@@ -60,4 +60,29 @@ module.exports = {
             .then((dbReverb) => res.status(200).json(dbReverb))
             .catch((err) => res.status(422).json(err));
     },
+
+    importById: async function (req, res) {
+        //find a single reverb post
+        //return the reverb post
+        db.Reverb.findById(req.params.id)
+            .then(async (dbReverb) => {
+                try {
+                    await db.Item.findByIdAndDelete(req.params.id);
+                    // console.debug(del);
+                } catch (err) {
+                    console.error(err);
+                }
+                const reverb = new ReverbApiClient(process.env.REVERB_API_KEY);
+                let imported = await reverb.get(dbReverb._links.self.href);
+                db.Item.create({ ...imported.data, _id: req.params.id })
+                    .then(() => {
+                        res.json({ message: 'imported reverb post' });
+                    })
+                    .catch((err) => {
+                        console.error(err);
+                        res.json({ message: 'error importing reverb post' });
+                    });
+            })
+            .catch((err) => res.status(422).json(err));
+    },
 };
