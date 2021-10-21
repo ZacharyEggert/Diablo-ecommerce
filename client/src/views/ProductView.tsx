@@ -305,9 +305,14 @@ export default function ProductView() {
     const params = useParams<expectedParams>();
 
     useEffect(() => {
-        getOneItem(params.id).then((res) => {
-            console.log(res);
-        });
+        getOneItem(params.id)
+            .then((res) => {
+                console.log(res);
+                setProduct(res.data);
+            })
+            .catch((err) => {
+                console.log(err);
+            });
 
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
@@ -361,18 +366,22 @@ export default function ProductView() {
                                 </Tab.List>
                             </div>
 
-                            <Tab.Panels className='w-full aspect-w-1 aspect-h-1'>
+                            <Tab.Panels className='w-full aspect-w-1 aspect-h-1 h-[80vh] overflow-y-hidden sm:rounded-lg align-middle'>
                                 {product.photos
                                     ?.map(
                                         (photo) =>
-                                            photo._links?.small_crop?.href
+                                            photo._links?.large_crop?.href
                                     )
-                                    .map((image) => (
+                                    .map((image, index) => (
                                         <Tab.Panel key={image + '_panel'}>
                                             <img
                                                 src={image}
                                                 alt={image}
                                                 className='object-cover object-center w-full h-full sm:rounded-lg'
+                                                onClick={() => {
+                                                    //open a new tab with the image
+                                                    product.cloudinary_photos && window.open(product.cloudinary_photos[index].preview_url);
+                                                }}
                                             />
                                         </Tab.Panel>
                                     ))}

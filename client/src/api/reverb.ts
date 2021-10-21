@@ -9,6 +9,10 @@ export const getOneReverbPost = (id: (string | number)) => {
     return axios.get(`/api/reverb/${id}`);
 };
 
+export const importReverbPostByID = (id: (string | number)) => {
+    return axios.get(`/api/reverb/import/${id}`);
+};
+
 export const importReverbPosts = () => {
     return axios.post('/api/reverb/import/all');
 }

@@ -1,7 +1,7 @@
 import { Tab } from '@headlessui/react';
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router';
-import { getOneReverbPost } from '../api/reverb';
+import { getOneReverbPost, importReverbPostByID } from '../api/reverb';
 import Item from '../interfaces/item';
 import PageWrapper from '../wrappers/PageWrapper';
 
@@ -140,8 +140,16 @@ const ReverbListing = () => {
                                 <div className='flex mt-10 sm:flex-col1'>
                                     <button
                                         type='submit'
-                                        className='flex items-center justify-center flex-1 max-w-xs px-8 py-3 text-base font-medium text-white border border-transparent rounded-md bg-grey-600 hover:bg-grey-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-50 focus:ring-grey-500 sm:w-full'>
-                                        Add to cart
+                                        className='flex items-center justify-center flex-1 max-w-xs px-8 py-3 text-base font-medium text-white border border-transparent rounded-md bg-grey-600 hover:bg-grey-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-50 focus:ring-grey-500 sm:w-full disabled:bg-grey-700'
+                                        onClick={
+                                            (e) => {
+                                                e.preventDefault();
+                                                let thisButton:EventTarget&HTMLButtonElement = e.currentTarget;
+                                                thisButton.disabled = true;
+                                                params.id && importReverbPostByID(params.id);
+                                            }
+                                        }>
+                                        Import to Catalog
                                     </button>
 
                                     {/* <button

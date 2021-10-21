@@ -15,27 +15,10 @@ import { useDispatch } from 'react-redux';
 import { validateUser } from './api/user';
 import ProductView from './views/ProductView';
 import ReverbListing from './views/ReverbListing';
+import { getAllItems } from './api/item';
 
 const App = () => {
     const dispatch = useDispatch();
-
-    useEffect(() => {
-        validateUser()
-            .then((res) => {
-                // console.log(res.data);
-                if (res.status === 200 && res.data?.email) {
-                    dispatch({
-                        type: 'SET_USER',
-                        payload: { email: res.data.email, _id: res.data._id },
-                    });
-                }
-            })
-            .catch((err) => {
-                console.log(err);
-            });
-
-        //eslint-disable-next-line
-    }, []);
 
     const testInventory: Item[] = [
         {
@@ -66,11 +49,45 @@ const App = () => {
         },
     ];
 
+    const [inventory, setInventory] = React.useState<Item[]>(testInventory);
+
+    useEffect(() => {
+
+        getAllItems().then(res => {
+            if(res.status === 200) {
+                setInventory(res.data);
+            }else{
+                console.error({res});
+            }
+        })
+        .catch(err => {
+            console.error(err);
+        });
+
+        validateUser()
+            .then((res) => {
+                // console.log(res.data);
+                if (res.status === 200 && res.data?.email) {
+                    dispatch({
+                        type: 'SET_USER',
+                        payload: { email: res.data.email, _id: res.data._id },
+                    });
+                }
+            })
+            .catch((err) => {
+                console.log(err);
+            });
+
+        //eslint-disable-next-line
+    }, []);
+
+    
+
     return (
         <Router>
             <Switch>
                 <Route exact path='/'>
-                    <Shop inventory={testInventory} />
+                    <Shop inventory={inventory} />
                 </Route>
                 <Route path='/login'>
                     <Login />
@@ -95,7 +112,7 @@ const App = () => {
                 </Route>
 
                 <Route path='/merchandise'>
-                    <Merchandise inventory={testInventory} />
+                    <Merchandise inventory={inventory} />
                 </Route>
                 <Route path='/product/:id'>
                     <ProductView />
