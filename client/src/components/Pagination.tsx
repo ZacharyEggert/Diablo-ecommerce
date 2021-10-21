@@ -28,7 +28,7 @@ const Pagination = ({
                     <>
                         {[1, 2, 3, 4, 5].map(
                             (page) =>
-                                page < lastPage && (
+                                page <= lastPage && (
                                     <li key={page} className='page-item'>
                                         <button
                                             className={'page-link' + (pageNumber === page ? ' bg-grey-600' : '')}
