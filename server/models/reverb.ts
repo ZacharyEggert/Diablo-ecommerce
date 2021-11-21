@@ -365,7 +365,7 @@ const reverbSchema = new Schema({
             },
         },
     },
-    
+
 });
 
 const Reverb = mongoose.model('Reverb', reverbSchema);

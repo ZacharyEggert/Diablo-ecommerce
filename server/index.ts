@@ -12,56 +12,62 @@ dotenv.config();
 const PORT = parseInt(process.env.PORT!) || 3000;
 
 const dev = process.env.NODE_ENV !== 'production';
-const app = next({ dev });
+const app = next({ dev, dir: path.join(__dirname, '../') });
 const handle = app.getRequestHandler();
 
-await mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/diablo');
+const main = async () => {
 
-const store = new MongoStore({
-    collectionName: 'sessions',
-    mongoUrl: process.env.MONGODB_URI,
-    autoRemoveInterval: 1200000,
-    dbName: 'diablo',
-    mongoOptions: {},
-});
+    await mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/diablo');
 
-app.prepare().then(() => {
-    const server = express();
-
-    server.use(
-        cors({
-            allowedHeaders: '*',
-            origin: 'localhost:3000/',
-            methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-            exposedHeaders: '*',
-            credentials: true,
-        })
-    );
-
-    server.use(
-        session({
-            secret: 'keyboard cat',
-            cookie: {
-                maxAge: 1000 * 60 * 60 * 24 * 7 * 52, // 1 year
-            },
-            store: store,
-            saveUninitialized: false,
-            resave: false,
-            name: 'session-diablo',
-        })
-    );
-    server.use(compression());
-    server.use(express.json());
-    server.use(express.urlencoded({ extended: true }));
-
-    server.use(express.static(path.join(__dirname, './client/build')));
-    server.use(routes);
-
-    server.all('*', (req, res) => {
-        return handle(req, res);
+    const store = new MongoStore({
+        collectionName: 'sessions',
+        mongoUrl: process.env.MONGODB_URI,
+        autoRemoveInterval: 1200,
+        dbName: 'diablo',
+        mongoOptions: {},
     });
 
-    server.listen(PORT, () => {
-        console.log(`> Ready on http://localhost:${PORT}`);
+    app.prepare().then(() => {
+        const server = express();
+
+        server.use(
+            cors({
+                allowedHeaders: '*',
+                origin: 'localhost:3000/',
+                methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+                exposedHeaders: '*',
+                credentials: true,
+            })
+        );
+
+        server.use(
+            session({
+                secret: 'keyboard cat',
+                cookie: {
+                    maxAge: 1000 * 60 * 60 * 24 * 7 * 52, // 1 year
+                },
+                store: store,
+                saveUninitialized: false,
+                resave: false,
+                name: 'session-diablo',
+            })
+        );
+        server.use(compression());
+        server.use(express.json());
+        server.use(express.urlencoded({ extended: true }));
+
+        server.use(express.static(path.join(__dirname, '../public')));
+        server.use(routes);
+
+        server.all('*', (req, res) => {
+            return handle(req, res);
+        });
+
+        server.listen(PORT, () => {
+            console.log(`> Ready on http://localhost:${PORT}`);
+        });
     });
-});
+
+};
+
+main();
