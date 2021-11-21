@@ -35,7 +35,8 @@ module.exports = {
                             console.error(err);
                         });
                 });
-            }).then(() => {
+            })
+            .then(() => {
                 console.debug('reverb table updated');
             })
             .catch((err) => {

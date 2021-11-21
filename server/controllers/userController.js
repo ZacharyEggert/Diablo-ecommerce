@@ -103,5 +103,5 @@ module.exports = {
                 error: 'User not logged in',
             });
         }
-    }
+    },
 };
