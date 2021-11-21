@@ -1,7 +1,7 @@
 import express from 'express'
 const router = express.Router()
 
-import reverbController from '../../../controllers/reverbController';
+import * as reverbController from '../../../controllers/reverbController';
 
 router.route('/')
     .get(reverbController.findAll);

@@ -1,5 +1,5 @@
-import DarkModeProvider from 'components/DarkMode/DarkModeProvider';
-import Wrapper from 'components/Wrapper';
+import DarkModeProvider from '@components/DarkMode/DarkModeProvider';
+import Wrapper from '@components/Wrapper';
 import type { AppProps } from 'next/app';
 import '../style/globalStyle.css';
 

@@ -5,6 +5,17 @@
         "jsx": "preserve",
         "lib": ["dom", "es2017"],
         "baseUrl": ".",
+        "paths": {
+            "@components/*": ["src/components/*"],
+            "@pages/*": ["src/pages/*"],
+            "@lib/*": ["src/lib/*"],
+            "@controllers/*": ["server/controllers/*"],
+            "@controllers": ["server/controllers/index"],
+            "@models/*": ["server/models/*"],
+            "@models": ["server/models/index"],
+            "@routes/*": ["server/routes/*"],
+            "@routes": ["server/routes/index"]
+        },
         "moduleResolution": "node",
         "strict": true,
         "allowJs": true,

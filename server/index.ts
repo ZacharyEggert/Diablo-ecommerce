@@ -1,3 +1,4 @@
+import './paths';
 import express from 'express';
 import mongoose from 'mongoose';
 import next from 'next';
@@ -6,7 +7,7 @@ import cors from 'cors';
 import compression from 'compression';
 import session from 'express-session';
 import MongoStore from 'connect-mongo';
-import routes from './routes';
+import routes from '@routes';
 import dotenv from 'dotenv';
 dotenv.config();
 const PORT = parseInt(process.env.PORT!) || 3000;

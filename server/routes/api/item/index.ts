@@ -1,7 +1,7 @@
 import express from 'express'
 const router = express.Router()
 
-import itemController from '../../../controllers/itemController';
+import * as itemController from '../../../controllers/itemController';
 
 router.route('/')
     .get(itemController.findAll)

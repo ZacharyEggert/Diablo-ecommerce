@@ -1,4 +1,4 @@
-import { themeState } from 'lib/providers/darkMode';
+import { themeState } from '@lib/providers/darkMode';
 import React, { useEffect, useState } from 'react';
 
 const DarkModeProvider: React.FC = ({ children }) => {

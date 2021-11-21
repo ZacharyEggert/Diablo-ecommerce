@@ -1,20 +1,17 @@
 import express from 'express'
 const router = express.Router()
 
-import userController from '../../../controllers/userController';
+import { getAllUsers, register, login, logout, validate } from '@controllers/userController';
+import { RequestWithUser } from 'server/types';
 
-router.route('/')
-    .get(userController.getAllUsers)
-    .post(userController.register);
+router.get('/', getAllUsers);
+router.post('/', (req, res) => register(req as RequestWithUser, res));
 
-router.route('/login')
-    .post(userController.login);
+router.post('/login', (req, res) => login(req as RequestWithUser, res));
 
-router.route('/logout')
-    .post(userController.logout);
+router.post('/logout', (req, res) => logout(req as RequestWithUser, res));
 
-router.route('/validate')
-    .post(userController.validate);
+router.post('/validate', (req, res) => validate(req as RequestWithUser, res));
 
 
 export default router;

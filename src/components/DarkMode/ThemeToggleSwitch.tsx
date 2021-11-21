@@ -1,4 +1,4 @@
-import { useThemeState } from 'lib/providers/darkMode';
+import { useThemeState } from '@lib/providers/darkMode';
 
 const ThemeToggleSwitch: React.FC = () => {
     const themeState = useThemeState();
