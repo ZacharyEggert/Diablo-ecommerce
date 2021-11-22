@@ -40,4 +40,13 @@ userSchema.methods.comparePassword = function (password: string, callback: (err:
 
 const User = mongoose.model('User', userSchema);
 
+export type UserDocument = mongoose.Document & {
+    _id: string;
+    email: string;
+    password: string;
+    __v: number;
+    comparePassword: (password: string, callback: (err: Error | undefined, same: boolean) => any) => any;
+}
+
+
 export default User;

@@ -1,6 +1,7 @@
 import { Request, Response } from 'express';
 import { RequestWithUser } from 'server/types';
 import { User } from '@models';
+import { UserDocument } from '@models/user';
 
 export function login(req: RequestWithUser, res: Response) {
     // console.log(req.body);
@@ -9,7 +10,7 @@ export function login(req: RequestWithUser, res: Response) {
             email: req.body.email,
         },
     })
-        .then(function (user) {
+        .then(function (user: UserDocument) {
             if (user) {
                 // console.log(user);
                 user.comparePassword(req.body.password, (err: Error | undefined, isMatch: boolean) => {
@@ -49,11 +50,11 @@ export function logout(req: RequestWithUser, res: Response) {
 }
 export function register(req: RequestWithUser, res: Response) {
     User.create(req.body)
-        .then(function (user) {
+        .then(function (user: UserDocument) {
             req.session!.user = user;
             res.json(user);
         })
-        .catch(function (err) {
+        .catch(function (err: Error) {
             console.error(err);
             res.status(500).json(err);
         });
@@ -64,7 +65,7 @@ export function getUser(req: Request, res: Response) {
             _id: req.params.id,
         },
     })
-        .then(function (user) {
+        .then(function (user: UserDocument) {
             res.json(user);
         })
         .catch(function (err) {
@@ -78,7 +79,7 @@ export function getUserByEmail(req: Request, res: Response) {
             email: req.params.email,
         },
     })
-        .then(function (user) {
+        .then(function (user: UserDocument) {
             res.json(user);
         })
         .catch(function (err) {

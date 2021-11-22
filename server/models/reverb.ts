@@ -370,4 +370,136 @@ const reverbSchema = new Schema({
 
 const Reverb = mongoose.model('Reverb', reverbSchema);
 
+export type ReverbDocument = mongoose.Document & {
+    condition: Condition;
+    price: Price;
+    buyer_price: BuyerPrice;
+    seller_price: Price;
+    state: State;
+    shipping: Shipping;
+    stats: Stats;
+    _links: ReverbLinks;
+    _id: string;
+    id: number;
+    make: string;
+    model: string;
+    finish: string;
+    year: string;
+    title: string;
+    created_at: string;
+    shop_name: string;
+    description: string;
+    inventory: number;
+    offers_enabled: boolean;
+    auction: boolean;
+    categories: Category[];
+    published_at: string;
+    slug: string;
+    photos: Photo[];
+    __v: number;
+}
+
+export interface ReverbLinks {
+    photo: hrefObj;
+    self: hrefObj;
+    update: hrefObj;
+    bump: hrefObj;
+    end: hrefObj;
+    want: hrefObj;
+    unwant: hrefObj;
+    edit: hrefObj;
+    web: hrefObj;
+    make_offer: hrefObj;
+    add_to_wishlist: hrefObj;
+    remove_from_wishlist: hrefObj;
+    cart: hrefObj;
+}
+
+export interface hrefObj {
+    method?: string;
+    href: string;
+}
+
+export interface BuyerPrice {
+    amount: string;
+    amount_cents: number;
+    currency: string;
+    symbol: string;
+    display: string;
+    tax_included_hint: string;
+    tax_included: boolean;
+    tax_included_rate: number;
+}
+
+export interface Category {
+    uuid: string;
+    full_name: string;
+    _id: string;
+}
+
+export interface Condition {
+    uuid: string;
+    display_name: string;
+    description: string;
+}
+
+export interface Photo {
+    _links: PhotoLinks;
+    _id: string;
+}
+
+export interface PhotoLinks {
+    large_crop: hrefObj;
+    small_crop: hrefObj;
+    full: hrefObj;
+    thumbnail: hrefObj;
+}
+
+export interface Price {
+    amount: string;
+    amount_cents: number;
+    currency: string;
+    symbol: string;
+    display: string;
+}
+
+export interface Shipping {
+    user_region_rate: UserRegionRate;
+    initial_offer_rate: InitialOfferRate;
+    local: boolean;
+    rates: RateElement[];
+    free_expedited_shipping: boolean;
+}
+
+export interface InitialOfferRate {
+    rate: InitialOfferRateRate;
+    region_code: string;
+}
+
+export interface InitialOfferRateRate {
+    original: Price;
+    display: Price;
+}
+
+export interface RateElement {
+    rate: Price;
+    region_code: string;
+    _id: string;
+}
+
+export interface UserRegionRate {
+    rate: Price;
+    region_code: string;
+}
+
+export interface State {
+    slug: string;
+    description: string;
+}
+
+export interface Stats {
+    views: number;
+    watches: number;
+}
+
 export default Reverb;
