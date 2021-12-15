@@ -11,3 +11,13 @@ export const getProducts = async (): Promise<Product[]> => {
         return [];
     }
 };
+
+export const getProductsPage = async (page: number): Promise<Product[]> => {
+    try {
+        return [TEST_PRODUCTS[page]];
+        // const response = await axios.get<Product[]>(`/api/products?page=${page}`);
+        // return response.data;
+    } catch (e) {
+        return [];
+    }
+}

@@ -11,5 +11,5 @@ export interface PromiseHook<T> {
     data: T | null;
     error: Error | null;
     isLoading: boolean;
-    firePromise?: () => void;
+    firePromise?: (page?: number) => void;
 }

@@ -121,7 +121,7 @@ const TEST_NAVIGATION = {
         { name: 'Sell Your Guitar', href: '/sell-us-your-guitar' },
         { name: 'About Us', href: '/about-us' },
         { name: 'Appointments', href: '/appointments' },
-        { name: 'Contact Us', href: '/constact' },
+        { name: 'Contact Us', href: '/contact' },
     ],
 };
 

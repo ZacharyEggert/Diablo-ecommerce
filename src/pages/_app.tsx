@@ -4,10 +4,12 @@ import '../style/globalStyle.css';
 
 const MyApp = ({ Component, pageProps }: AppProps) => {
     return (
-        <>
+        <div className='min-h-screen text-skin-text bg-skin-background flex flex-col justify-between'>
             <Header />
-            <Component {...pageProps} />
-        </>
+            <div className='flex-grow'>
+                <Component {...pageProps} />
+            </div>
+        </div>
     );
 };
 

@@ -1,4 +1,4 @@
-import { categoryNames, getCategoryFromSlug } from '@lib/categories';
+import { getCategoryFromSlug } from '@lib/categories';
 import { useRouter } from 'next/router';
 import { FC, useEffect } from 'react';
 
