@@ -6,21 +6,28 @@ const TEST_NAVIGATION = {
             featured: [
                 {
                     name: 'Guitars',
-                    href: '#',
+                    href: '/guitars',
                     imageSrc:
                         'https://i1.wp.com/www.diabloguitars.com/wp-content/uploads/2021/06/sbbiuxbnzcx5ruwulaey.jpg?fit=800%2C792&ssl=1',
                     imageAlt: 'Close up of chrome stratocaster',
                 },
                 {
                     name: 'Accessories',
-                    href: '#',
+                    href: '/accessories',
                     imageSrc:
                         'https://i0.wp.com/www.diabloguitars.com/wp-content/uploads/2021/06/cm8unae6kqxbrd3piwhy.jpg?fit=728%2C800&ssl=1',
                     imageAlt: 'Jimi Hendrix Univibe pedal.',
                 },
                 {
+                    name: 'Amplifiers',
+                    href: '/amplifiers',
+                    imageSrc:
+                        'https://i2.wp.com/www.diabloguitars.com/wp-content/uploads/2021/11/jah4qgd20i3bl2uara9g.jpg?fit=800%2C800&ssl=1',
+                    imageAlt: 'Jimi Hendrix Univibe pedal.',
+                },
+                {
                     name: 'Pickups & Parts',
-                    href: '#',
+                    href: '/pickups',
                     imageSrc:
                         'https://i0.wp.com/www.diabloguitars.com/wp-content/uploads/2021/07/qkepmwgag3tuv6ok3a8a.jpg?fit=800%2C800&ssl=1',
                     imageAlt: 'Bare Knuckle PG Blues in box.',
@@ -80,7 +87,7 @@ const TEST_NAVIGATION = {
                         items: [
                             {
                                 name: 'All Categories',
-                                href: '/category/merchandise',
+                                href: '/merchandise',
                             },
                             { name: 'Clothing', href: '/merchandise/clothing' },
                             {

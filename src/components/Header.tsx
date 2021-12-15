@@ -7,7 +7,7 @@ import {
     UserIcon,
     XIcon,
 } from '@heroicons/react/outline';
-import navigation from '@lib/testNavigation';
+import navigation from '@lib/navigation';
 import classNames from '@lib/util/classNames';
 
 interface HeaderProps {}
@@ -137,7 +137,7 @@ const Header: React.FC<HeaderProps> = ({}) => {
                                                                     }>
                                                                     <p
                                                                         id={`${category.id}-${section.id}-heading-mobile`}
-                                                                        className='font-medium text-neutral-900'>
+                                                                        className='font-medium text-neutral-200'>
                                                                         {
                                                                             section.name
                                                                         }
@@ -159,7 +159,7 @@ const Header: React.FC<HeaderProps> = ({}) => {
                                                                                         href={
                                                                                             item.href
                                                                                         }
-                                                                                        className='block p-2 -m-2 text-neutral-500'>
+                                                                                        className='block p-2 -m-2 text-neutral-400'>
                                                                                         {
                                                                                             item.name
                                                                                         }
@@ -184,7 +184,7 @@ const Header: React.FC<HeaderProps> = ({}) => {
                                     <div key={page.name} className='flow-root'>
                                         <a
                                             href={page.href}
-                                            className='block p-2 -m-2 font-medium text-neutral-900'>
+                                            className='block p-2 -m-2 font-medium text-neutral-200'>
                                             {page.name}
                                         </a>
                                     </div>
@@ -196,12 +196,12 @@ const Header: React.FC<HeaderProps> = ({}) => {
                                     href='#'
                                     className='flex items-center p-2 -m-2'>
                                     <img
-                                        src='https://tailwindui.com/img/flags/flag-canada.svg'
+                                        src='https://tailwindui.com/img/flags/flag-united-states.svg'
                                         alt=''
                                         className='flex-shrink-0 block w-5 h-auto'
                                     />
-                                    <span className='block ml-3 text-base font-medium text-neutral-900'>
-                                        CAD
+                                    <span className='block ml-3 text-base font-medium text-neutral-200'>
+                                        USD
                                     </span>
                                     <span className='sr-only'>
                                         , change currency
@@ -301,8 +301,13 @@ const Header: React.FC<HeaderProps> = ({}) => {
                                                                                             item.name
                                                                                         }
                                                                                         className={classNames(
-                                                                                            itemIdx ===
-                                                                                                0
+                                                                                            category
+                                                                                                .featured
+                                                                                                .length %
+                                                                                                2 ===
+                                                                                                1 &&
+                                                                                                itemIdx ===
+                                                                                                    0
                                                                                                 ? 'col-span-2 aspect-w-2'
                                                                                                 : '',
                                                                                             'group relative aspect-w-1 aspect-h-1 rounded-md bg-neutral-100 overflow-hidden'
@@ -424,11 +429,11 @@ const Header: React.FC<HeaderProps> = ({}) => {
                             </Popover.Group>
 
                             {/* Logo */}
-                            <a href='#' className='flex'>
-                                <span className='sr-only'>Workflow</span>
+                            <a href='/' className='relative flex'>
+                                <span className='sr-only'>Diablo Guitars</span>
                                 <img
-                                    className='w-auto h-8'
-                                    src='https://tailwindui.com/img/logos/workflow-mark.svg?color=red&shade=600'
+                                    className='relative w-auto rounded-full h-28 -bottom-8'
+                                    src='/assets/main-logo-ring.png'
                                     alt=''
                                 />
                             </a>
@@ -438,12 +443,12 @@ const Header: React.FC<HeaderProps> = ({}) => {
                                     href='#'
                                     className='hidden text-neutral-200 hover:text-neutral-100 lg:flex lg:items-center'>
                                     <img
-                                        src='https://tailwindui.com/img/flags/flag-canada.svg'
+                                        src='https://tailwindui.com/img/flags/flag-united-states.svg'
                                         alt=''
                                         className='flex-shrink-0 block w-5 h-auto'
                                     />
                                     <span className='block ml-3 text-sm font-medium'>
-                                        CAD
+                                        USD
                                     </span>
                                     <span className='sr-only'>
                                         , change currency
