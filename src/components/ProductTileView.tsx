@@ -17,7 +17,7 @@ const ProductTileView: FC<TileViewProps> = ({ products }) => {
                             key={product.id}
                             href={product.href}
                             className='group'>
-                            <div className='w-full overflow-hidden bg-gray-200 rounded-lg aspect-w-1 aspect-h-1 xl:aspect-w-7 xl:aspect-h-8'>
+                            <div className='w-full overflow-hidden bg-gray-200 rounded-lg xl:aspect-w-7 xl:aspect-h-8 aspect-square'>
                                 <img
                                     src={product.imageSrc}
                                     alt={product.imageAlt}
