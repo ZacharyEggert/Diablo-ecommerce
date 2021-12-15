@@ -12,4 +12,6 @@ export interface PromiseHook<T> {
     error: Error | null;
     isLoading: boolean;
     firePromise?: (page?: number) => void;
+    pageCount?: number;
+    getPageCount?: () => void;
 }
