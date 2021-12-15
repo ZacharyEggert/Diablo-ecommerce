@@ -3,12 +3,22 @@
 @tailwind utilities;
 
 @layer base {
-    body {
-        @apply dark:bg-gray-800 dark:text-gray-50 bg-gray-50 text-gray-900 min-h-screen w-full max-w-full overflow-x-hidden;
+    :root {
+        --color-primary: 189, 19, 33;
+        --color-background: 38, 38, 38;
+        --color-text: 250, 250, 250;
+        --color-background-inverted: 250, 250, 250;
+        --color-text-inverted: 23, 23, 23;
     }
 }
-
 @layer components {
+    body {
+        @apply min-h-screen w-full overflow-x-hidden;
+    }
+
+    #__next {
+        @apply min-h-screen w-full overflow-x-hidden;
+    }
 }
 
 @layer utilities {
