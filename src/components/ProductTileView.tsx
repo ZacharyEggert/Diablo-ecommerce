@@ -21,7 +21,7 @@ const ProductTileView: FC<TileViewProps> = ({ products }) => {
                                 <img
                                     src={product.imageSrc}
                                     alt={product.imageAlt}
-                                    className='object-cover object-center w-full h-full group-hover:opacity-75'
+                                    className='object-cover object-center w-full h-full group-hover:opacity-90'
                                 />
                             </div>
                             <h3 className='mt-4 text-sm text-skin-text'>
