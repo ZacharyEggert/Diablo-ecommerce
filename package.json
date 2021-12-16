@@ -8,6 +8,7 @@
     "dependencies": {
         "@headlessui/react": "^1.4.2",
         "@heroicons/react": "^1.0.5",
+        "@tailwindcss/forms": "^0.4.0",
         "@zacharyeggert/reverb-api": "^0.1.2",
         "autoprefixer": "^10.4.0",
         "next": "latest",
