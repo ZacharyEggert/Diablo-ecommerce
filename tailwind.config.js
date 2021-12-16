@@ -12,6 +12,19 @@ module.exports = {
     darkMode: 'class', // or 'media' or 'class'
     theme: {
         extend: {
+            animation: {
+                'fade-in': 'fadeIn 0.5s ease-in-out',
+                'fade-out': 'fadeOut 0.5s ease-in-out',
+                'spin-reverse': 'spinReverse 1s linear infinite',
+            },
+
+            keyframes: {
+                spinReverse: {
+                    '0%': { transform: 'rotate(0deg)' },
+                    '100%': { transform: 'rotate(-360deg)' },
+                },
+            },
+
             textColor: {
                 skin: {
                     primary: withOpacity('--color-primary'),

@@ -8,37 +8,42 @@ export const useProductFetch = (): PromiseHook<Product[]> => {
     const [isLoading, setIsLoading] = useState<boolean>(false);
     const [pageCount, setPageCount] = useState<number>(1);
 
+    const [fetchingCount, setFetchingCount] = useState<boolean>(false);
+    const [fetchingProducts, setFetchingProducts] = useState<boolean>(false);
+
     const fetchProducts = async (page?: number) => {
-        setIsLoading(true);
+        setFetchingProducts(true);
         try {
-            let data;
-            if (!page) {
-                data = await getProducts();
-            } else {
-                data = await getProductsPage(page);
-            }
-            setProducts(data);
-            setIsLoading(false);
+            setTimeout(async () => {
+                let data;
+                if (!page) {
+                    data = await getProducts();
+                } else {
+                    data = await getProductsPage(page);
+                }
+                setProducts(data);
+                setFetchingProducts(false);
+            }, 2000);
         } catch (error: any) {
             setError(new Error(error.message));
-            setIsLoading(false);
+            setFetchingProducts(false);
         }
     };
 
     const fetchPageCount = async () => {
-        setIsLoading(true);
+        setFetchingCount(true);
         try {
             const count = await getProductsPageCount();
             setPageCount(count);
-            setIsLoading(false);
+            setFetchingCount(false);
         } catch (error: any) {
             setError(new Error(error.message));
-            setIsLoading(false);
+            setFetchingCount(false);
         }
     }
 
     return {
-        isLoading,
+        isLoading: isLoading || fetchingProducts || fetchingCount,
         error,
         data: products,
         firePromise: fetchProducts,
