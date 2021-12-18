@@ -1,7 +1,7 @@
 import Loading from '@components/Loading';
 import Pagination from '@components/Pagination';
 import ProductTileView from '@components/ProductTileView';
-import { useProductFetch } from '@lib/api/products/hooks';
+import { useProductFetch } from '@lib/api/test.products/hooks';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 

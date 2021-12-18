@@ -1,12 +1,12 @@
-import { Product, PromiseHook } from '@lib/types';
+import { PaginatedPromiseHook, Product } from '@lib/types';
 import { useState } from 'react';
 import {
     getProducts,
     getProductsPage,
     getProductsPageCount,
-} from '@lib/api/products';
+} from '@lib/api/test.products';
 
-export const useProductFetch = (): PromiseHook<Product[]> => {
+export const useProductFetch = (): PaginatedPromiseHook<Product[]> => {
     const [products, setProducts] = useState<Product[]>([]);
     const [error, setError] = useState<Error | null>(null);
     const [isLoading, _] = useState<boolean>(false);
