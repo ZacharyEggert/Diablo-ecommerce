@@ -5,7 +5,7 @@ interface SellUsYourGuitarProps {}
 
 const SellUsYourGuitar: React.FC<SellUsYourGuitarProps> = () => {
     return (
-        <main className='w-full h-full p-8 pt-16'>
+        <main className='w-full h-full p-8 pt-16 max-w-5xl mx-auto'>
             <h2 className='my-4 text-2xl font-semibold uppercase text-skin-primary'>
                 Sell us your guitars
             </h2>
