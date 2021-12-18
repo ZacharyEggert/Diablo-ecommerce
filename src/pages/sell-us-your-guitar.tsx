@@ -5,8 +5,8 @@ interface SellUsYourGuitarProps {}
 
 const SellUsYourGuitar: React.FC<SellUsYourGuitarProps> = () => {
     return (
-        <main className='w-full h-full p-8 pt-16 max-w-5xl mx-auto'>
-            <h2 className='my-4 text-2xl font-semibold uppercase text-skin-primary'>
+        <main className='w-full h-full p-8 max-w-5xl mx-auto'>
+            <h2 className='my-12 text-2xl font-semibold uppercase text-skin-primary'>
                 Sell us your guitars
             </h2>
 
@@ -29,13 +29,13 @@ const SellUsYourGuitar: React.FC<SellUsYourGuitarProps> = () => {
                 </p>
             </section>
 
-            <section className='my-4'>
+            <section className='my-4 relative'>
                 <h3 className='sr-only'>Contact Form</h3>
                 <p className='italic'>
                     Sellers are responsibe for delivering their items to Diablo
                     Guitars.
                 </p>
-                <SellUsYourGuitarForm />
+                <SellUsYourGuitarForm className='' />
             </section>
         </main>
     );
