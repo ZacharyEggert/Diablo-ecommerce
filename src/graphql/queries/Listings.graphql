@@ -1,0 +1,21 @@
+query Listings {
+    listings {
+        data {
+            title
+            description
+            finish
+            model
+            submodel
+            imageUrls
+            price
+            year
+            make
+            id
+        }
+        errors {
+            message
+            field
+            code
+        }
+    }
+}
