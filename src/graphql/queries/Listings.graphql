@@ -1,16 +1,24 @@
 query Listings {
     listings {
         data {
-            title
+            id
+            slug
+            photos
+            cost
+            price
+            categories
+            condition
             description
             finish
-            model
-            submodel
-            imageUrls
-            price
             year
+            submodel
+            model
             make
-            id
+            title
+            reverbImagesImported
+            reverbSelfLink
+            reverbSku
+            reverbId
         }
         errors {
             message
