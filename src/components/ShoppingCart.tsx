@@ -3,12 +3,11 @@ import { FC, Fragment, useEffect, useState } from 'react';
 import { Dialog, Transition } from '@headlessui/react';
 import { XIcon } from '@heroicons/react/outline';
 import { useCartContext } from '@lib/state/cartState';
-import {
-    ListingsBySlugsQuery,
-    useListingsBySlugsQuery,
-} from 'src/generated/graphql';
+import { useListingsBySlugsQuery } from 'src/generated/graphql';
 import { addPricesFromProducts } from '@lib/util/addPrices';
 import formatPrice from '@lib/util/formatPrice';
+import Link from 'next/link';
+import Loading from './Loading';
 
 interface ShoppingCartProps {}
 
@@ -56,6 +55,10 @@ const ShoppingCart: FC<ShoppingCartProps> = ({}) => {
 
     const setOpen = () => {
         dispatch({ type: 'openCart' });
+    };
+
+    const removeFromCart = (slug: string) => {
+        dispatch({ type: 'remove', payload: slug });
     };
 
     const setClose = () => {
@@ -117,7 +120,9 @@ const ShoppingCart: FC<ShoppingCartProps> = ({}) => {
                                                 <ul
                                                     role='list'
                                                     className='-my-6 divide-y divide-neutral-200'>
-                                                    {products &&
+                                                    {!fetching &&
+                                                        !error &&
+                                                        products &&
                                                         products.map(
                                                             (product) => (
                                                                 <li
@@ -137,22 +142,26 @@ const ShoppingCart: FC<ShoppingCartProps> = ({}) => {
 
                                                                     <div className='flex flex-col flex-1 ml-4'>
                                                                         <div>
-                                                                            <div className='flex justify-between text-base font-medium text-neutral-900'>
+                                                                            <div className='flex justify-between text-base font-medium text-neutral-200'>
                                                                                 <h3>
-                                                                                    <a
+                                                                                    <Link
                                                                                         href={
                                                                                             '/products/' +
                                                                                             product.slug
                                                                                         }>
-                                                                                        {
-                                                                                            product.title
-                                                                                        }
-                                                                                    </a>
+                                                                                        <>
+                                                                                            {product.title.substring(
+                                                                                                0,
+                                                                                                60
+                                                                                            )}
+                                                                                            ...
+                                                                                        </>
+                                                                                    </Link>
                                                                                 </h3>
                                                                                 <p className='ml-4'>
-                                                                                    {
+                                                                                    {formatPrice(
                                                                                         product.price
-                                                                                    }
+                                                                                    )}
                                                                                 </p>
                                                                             </div>
                                                                             <p className='mt-1 text-sm text-neutral-500'>
@@ -172,6 +181,11 @@ const ShoppingCart: FC<ShoppingCartProps> = ({}) => {
                                                                             <div className='flex'>
                                                                                 <button
                                                                                     type='button'
+                                                                                    onClick={() => {
+                                                                                        removeFromCart(
+                                                                                            product.slug
+                                                                                        );
+                                                                                    }}
                                                                                     className='font-medium text-red-600 hover:text-red-500'>
                                                                                     Remove
                                                                                 </button>
@@ -181,6 +195,23 @@ const ShoppingCart: FC<ShoppingCartProps> = ({}) => {
                                                                 </li>
                                                             )
                                                         )}
+                                                    {fetching && (
+                                                        <li className='py-6'>
+                                                            <div className='flex justify-center pt-16'>
+                                                                <Loading className='w-1/3 aspect-square text-neutral-300' />
+                                                            </div>
+                                                        </li>
+                                                    )}
+                                                    {error && (
+                                                        <li className='py-6'>
+                                                            <div className='flex justify-center pt-16'>
+                                                                <p className='text-xl text-red-600'>
+                                                                    An Error has
+                                                                    occurred
+                                                                </p>
+                                                            </div>
+                                                        </li>
+                                                    )}
                                                 </ul>
                                             </div>
                                         </div>
@@ -202,11 +233,11 @@ const ShoppingCart: FC<ShoppingCartProps> = ({}) => {
                                             checkout.
                                         </p>
                                         <div className='mt-6'>
-                                            <a
-                                                href='#'
-                                                className='flex items-center justify-center px-6 py-3 text-base font-medium text-white bg-red-600 border border-transparent rounded-md shadow-sm hover:bg-red-700'>
-                                                Checkout
-                                            </a>
+                                            <Link href='#'>
+                                                <span className='flex items-center justify-center px-6 py-3 text-base font-medium text-white bg-red-600 border border-transparent rounded-md shadow-sm hover:bg-red-700 hover:cursor-pointer'>
+                                                    Checkout
+                                                </span>
+                                            </Link>
                                         </div>
                                         <div className='flex justify-center mt-6 text-sm text-center text-neutral-500'>
                                             <p>

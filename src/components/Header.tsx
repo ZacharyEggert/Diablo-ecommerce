@@ -10,15 +10,18 @@ import {
 import navigation from '@lib/navigation';
 import classNames from '@lib/util/classNames';
 import { useCartContext } from '@lib/state/cartState';
+import Link from 'next/link';
 
 interface HeaderProps {}
 
 const Header: React.FC<HeaderProps> = ({}) => {
-    const [_, dispatch] = useCartContext();
+    const [state, dispatch] = useCartContext();
 
     const openCart = () => {
         dispatch({ type: 'openCart' });
     };
+
+    const cartCount = state.slugs.length;
 
     const [open, setOpen] = useState(false);
 
@@ -107,19 +110,21 @@ const Header: React.FC<HeaderProps> = ({}) => {
                                                             />
                                                             <div className='flex flex-col justify-end'>
                                                                 <div className='p-4 text-base bg-white bg-opacity-60 sm:text-sm'>
-                                                                    <a
+                                                                    <Link
+                                                                        as={'a'}
                                                                         href={
                                                                             item.href
-                                                                        }
-                                                                        className='font-medium text-neutral-900'>
-                                                                        <span
-                                                                            className='absolute inset-0'
-                                                                            aria-hidden='true'
-                                                                        />
-                                                                        {
-                                                                            item.name
-                                                                        }
-                                                                    </a>
+                                                                        }>
+                                                                        <>
+                                                                            <span
+                                                                                className='absolute inset-0 font-medium text-neutral-900'
+                                                                                aria-hidden='true'
+                                                                            />
+                                                                            {
+                                                                                item.name
+                                                                            }
+                                                                        </>
+                                                                    </Link>
                                                                     <p
                                                                         aria-hidden='true'
                                                                         className='mt-0.5 text-neutral-200 sm:mt-1'>
@@ -189,31 +194,31 @@ const Header: React.FC<HeaderProps> = ({}) => {
                             <div className='px-4 py-6 space-y-6 border-t border-neutral-200'>
                                 {navigation.pages.map((page) => (
                                     <div key={page.name} className='flow-root'>
-                                        <a
-                                            href={page.href}
-                                            className='block p-2 -m-2 font-medium text-neutral-200'>
-                                            {page.name}
-                                        </a>
+                                        <Link href={page.href}>
+                                            <span className='block p-2 -m-2 font-medium text-neutral-200'>
+                                                {page.name}
+                                            </span>
+                                        </Link>
                                     </div>
                                 ))}
                             </div>
 
                             <div className='px-4 py-6 border-t border-neutral-200'>
-                                <a
-                                    href='#'
-                                    className='flex items-center p-2 -m-2'>
-                                    <img
-                                        src='https://tailwindui.com/img/flags/flag-united-states.svg'
-                                        alt=''
-                                        className='flex-shrink-0 block w-5 h-auto'
-                                    />
-                                    <span className='block ml-3 text-base font-medium text-neutral-200'>
-                                        USD
-                                    </span>
-                                    <span className='sr-only'>
-                                        , change currency
-                                    </span>
-                                </a>
+                                <Link href='#'>
+                                    <div className='flex items-center p-2 -m-2'>
+                                        <img
+                                            src='https://tailwindui.com/img/flags/flag-united-states.svg'
+                                            alt=''
+                                            className='flex-shrink-0 block w-5 h-auto'
+                                        />
+                                        <span className='block ml-3 text-base font-medium text-neutral-200'>
+                                            USD
+                                        </span>
+                                        <span className='sr-only'>
+                                            , change currency
+                                        </span>
+                                    </div>
+                                </Link>
                             </div>
                         </div>
                     </Transition.Child>
@@ -494,7 +499,7 @@ const Header: React.FC<HeaderProps> = ({}) => {
                                             aria-hidden='true'
                                         />
                                         <span className='ml-2 text-sm font-medium text-neutral-200 group-hover:text-neutral-100'>
-                                            0
+                                            {cartCount}
                                         </span>
                                         <span className='sr-only'>
                                             items in cart, view bag

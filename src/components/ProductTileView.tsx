@@ -1,6 +1,7 @@
 // import { Product } from '@lib/types';
 import formatPrice from '@lib/util/formatPrice';
 import { FC } from 'react';
+import Link from 'next/link';
 
 interface TileViewProps {
     products: Array<{
@@ -34,24 +35,25 @@ const ProductTileView: FC<TileViewProps> = ({ products }) => {
 
                 <div className='grid grid-cols-1 gap-y-10 sm:grid-cols-2 gap-x-6 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8'>
                     {products.map((product) => (
-                        <a
+                        <Link
                             key={product.id}
-                            href={'/product/' + product.slug}
-                            className='group'>
-                            <div className='w-full overflow-hidden bg-gray-200 rounded-lg xl:aspect-w-7 xl:aspect-h-8 aspect-square'>
-                                <img
-                                    src={product.photos[0]}
-                                    alt={product.title}
-                                    className='object-cover object-center w-full h-full group-hover:opacity-90'
-                                />
+                            href={'/product/' + product.slug}>
+                            <div className='group hover:cursor-pointer'>
+                                <div className='w-full overflow-hidden bg-gray-200 rounded-lg xl:aspect-w-7 xl:aspect-h-8 aspect-square'>
+                                    <img
+                                        src={product.photos[0]}
+                                        alt={product.title}
+                                        className='object-cover object-center w-full h-full group-hover:opacity-90'
+                                    />
+                                </div>
+                                <h3 className='mt-4 text-sm text-skin-text'>
+                                    {product.title}
+                                </h3>
+                                <p className='mt-1 text-lg font-medium text-skin-primary'>
+                                    {formatPrice(product.price)}
+                                </p>
                             </div>
-                            <h3 className='mt-4 text-sm text-skin-text'>
-                                {product.title}
-                            </h3>
-                            <p className='mt-1 text-lg font-medium text-skin-primary'>
-                                {formatPrice(product.price)}
-                            </p>
-                        </a>
+                        </Link>
                     ))}
                 </div>
             </div>

@@ -31,6 +31,7 @@ const reducer: Reducer<CartState, CartReducerAction> = (
 ) => {
     switch (action.type) {
         case 'add':
+            if (state.slugs.includes(action.payload)) return state;
             return { ...state, slugs: [...state.slugs, action.payload] };
         case 'remove':
             return {

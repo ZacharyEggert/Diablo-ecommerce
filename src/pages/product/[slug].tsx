@@ -1,5 +1,6 @@
 import Loading from '@components/Loading';
 import { Tab } from '@headlessui/react';
+import { useCartContext } from '@lib/state/cartState';
 // import {
 //     HeartIcon,
 //     MinusSmIcon,
@@ -18,6 +19,8 @@ const Category: FC<CategoryProps> = ({}) => {
     const router = useRouter();
     const { slug } = router.query;
 
+    const [_, dispatch] = useCartContext();
+
     const [{ fetching, data, error }, call] = useListingBySlugQuery({
         variables: {
             slug: slug
@@ -33,6 +36,10 @@ const Category: FC<CategoryProps> = ({}) => {
     useEffect(() => {
         if (slug) call();
     }, [slug]);
+
+    const addItemToCart = (product: { [s: string]: any }) => {
+        dispatch({ type: 'add', payload: product.slug });
+    };
 
     return (
         <div className='max-w-2xl px-4 py-16 mx-auto sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8'>
@@ -125,11 +132,20 @@ const Category: FC<CategoryProps> = ({}) => {
                             {product.title}
                         </h1>
 
-                        <div className='mt-3'>
+                        <div className='flex flex-row items-center justify-between mt-3'>
                             <h2 className='sr-only'>Product information</h2>
                             <p className='text-3xl text-neutral-100'>
                                 {formatPrice(product.price)}
                             </p>
+                            <div className=''>
+                                <a
+                                    onClick={() => {
+                                        addItemToCart(product);
+                                    }}
+                                    className='flex items-center justify-center px-6 py-3 text-lg font-medium text-white bg-red-600 border border-transparent rounded-md shadow-sm hover:bg-red-700'>
+                                    Add to cart
+                                </a>
+                            </div>
                         </div>
 
                         {/* Reviews */}

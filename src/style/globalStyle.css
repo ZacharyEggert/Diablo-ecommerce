@@ -19,6 +19,10 @@
     #__next {
         @apply min-h-screen w-full overflow-x-hidden;
     }
+
+    #square-appointment-form * {
+        @apply !bg-black;
+    }
 }
 
 @layer utilities {
