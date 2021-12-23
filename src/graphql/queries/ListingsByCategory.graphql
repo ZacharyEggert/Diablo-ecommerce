@@ -1,0 +1,29 @@
+query ListingsByCategory($category: String!) {
+    listingsByCategory(category: $category) {
+        data {
+            id
+            reverbId
+            reverbSku
+            reverbSelfLink
+            reverbImagesImported
+            title
+            make
+            model
+            submodel
+            year
+            finish
+            description
+            condition
+            categories
+            price
+            cost
+            photos
+            slug
+        }
+        errors {
+            message
+            field
+            code
+        }
+    }
+}

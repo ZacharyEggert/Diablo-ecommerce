@@ -1,0 +1,29 @@
+query ListingsByMakeAndCategory($category: String!, $make: String!) {
+    listingsByMakeAndCategory(category: $category, make: $make) {
+        data {
+            id
+            reverbId
+            reverbSku
+            reverbSelfLink
+            reverbImagesImported
+            title
+            model
+            make
+            year
+            submodel
+            finish
+            description
+            condition
+            categories
+            price
+            cost
+            photos
+            slug
+        }
+        errors {
+            message
+            field
+            code
+        }
+    }
+}

@@ -36,7 +36,7 @@ const ProductTileView: FC<TileViewProps> = ({ products }) => {
                     {products.map((product) => (
                         <a
                             key={product.id}
-                            href={'/product/' + product.id}
+                            href={'/product/' + product.slug}
                             className='group'>
                             <div className='w-full overflow-hidden bg-gray-200 rounded-lg xl:aspect-w-7 xl:aspect-h-8 aspect-square'>
                                 <img
