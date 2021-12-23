@@ -1,17 +1,15 @@
 import Loading from '@components/Loading';
 import ProductTileView from '@components/ProductTileView';
-import { useRouter } from 'next/router';
 import React, { useEffect } from 'react';
 import { useListingsByCategoryQuery } from 'src/generated/graphql';
 
-interface CategoryProps {}
+interface AmplifiersProps {}
 
-const Category: React.FC<CategoryProps> = ({}) => {
-    const router = useRouter();
-    const { category } = router.query;
+const Amplifiers: React.FC<AmplifiersProps> = ({}) => {
+    const category = 'amp';
 
     const [{ fetching, data, error }, call] = useListingsByCategoryQuery({
-        variables: { category: category ? (category as string) : 'accessor' },
+        variables: { category },
     });
 
     useEffect(() => {
@@ -44,4 +42,4 @@ const Category: React.FC<CategoryProps> = ({}) => {
     );
 };
 
-export default Category;
+export default Amplifiers;
