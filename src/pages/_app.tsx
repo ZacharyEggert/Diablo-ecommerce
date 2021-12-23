@@ -6,6 +6,8 @@ import { Provider, createClient } from 'urql';
 import emailjs from 'emailjs-com';
 
 import '../style/globalStyle.css';
+import { CartProvider } from '@lib/state/cartState';
+import ShoppingCart from '@components/ShoppingCart';
 
 const client = createClient({
     url: GRAPHQL_URL,
@@ -22,14 +24,17 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
     }, []);
 
     return (
-        <Provider value={client}>
-            <div className='flex flex-col justify-between min-h-screen text-skin-text bg-skin-background'>
-                <Header />
-                <div className='flex-grow'>
-                    <Component {...pageProps} />
+        <CartProvider>
+            <Provider value={client}>
+                <div className='flex flex-col justify-between min-h-screen text-skin-text bg-skin-background'>
+                    <Header />
+                    <div className='flex-grow'>
+                        <Component {...pageProps} />
+                    </div>
+                    <ShoppingCart />
                 </div>
-            </div>
-        </Provider>
+            </Provider>
+        </CartProvider>
     );
 };
 

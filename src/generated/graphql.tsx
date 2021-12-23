@@ -119,6 +119,7 @@ export type Query = {
   listingsByCategory: ListingsResponse;
   listingsByMake: ListingsResponse;
   listingsByMakeAndCategory: ListingsResponse;
+  listingsBySlugs: ListingsResponse;
   user: UserResponse;
   users: UsersResponse;
 };
@@ -147,6 +148,11 @@ export type QueryListingsByMakeArgs = {
 export type QueryListingsByMakeAndCategoryArgs = {
   category: Scalars['String'];
   make: Scalars['String'];
+};
+
+
+export type QueryListingsBySlugsArgs = {
+  slugs: Array<Scalars['String']>;
 };
 
 
@@ -200,6 +206,13 @@ export type ListingsByMakeAndCategoryQueryVariables = Exact<{
 
 
 export type ListingsByMakeAndCategoryQuery = { __typename?: 'Query', listingsByMakeAndCategory: { __typename?: 'ListingsResponse', data?: Array<{ __typename?: 'Listing', id: number, reverbId?: number | null | undefined, reverbSku?: string | null | undefined, reverbSelfLink?: string | null | undefined, reverbImagesImported?: boolean | null | undefined, title: string, model: string, make: string, year?: string | null | undefined, submodel?: string | null | undefined, finish?: string | null | undefined, description: string, condition: string, categories: Array<string>, price: number, cost: number, photos: Array<string>, slug: string }> | null | undefined, errors?: Array<{ __typename?: 'GQLError', message: string, field?: string | null | undefined, code?: string | null | undefined }> | null | undefined } };
+
+export type ListingsBySlugsQueryVariables = Exact<{
+  slugs: Array<Scalars['String']> | Scalars['String'];
+}>;
+
+
+export type ListingsBySlugsQuery = { __typename?: 'Query', listingsBySlugs: { __typename?: 'ListingsResponse', data?: Array<{ __typename?: 'Listing', title: string, id: number, reverbId?: number | null | undefined, reverbSku?: string | null | undefined, reverbImagesImported?: boolean | null | undefined, slug: string, photos: Array<string>, price: number, categories: Array<string>, condition: string, description: string, finish?: string | null | undefined, year?: string | null | undefined, submodel?: string | null | undefined, model: string, make: string }> | null | undefined, errors?: Array<{ __typename?: 'GQLError', message: string, field?: string | null | undefined, code?: string | null | undefined }> | null | undefined } };
 
 
 export const ListingBySlugDocument = gql`
@@ -340,4 +353,37 @@ export const ListingsByMakeAndCategoryDocument = gql`
 
 export function useListingsByMakeAndCategoryQuery(options: Omit<Urql.UseQueryArgs<ListingsByMakeAndCategoryQueryVariables>, 'query'> = {}) {
   return Urql.useQuery<ListingsByMakeAndCategoryQuery>({ query: ListingsByMakeAndCategoryDocument, ...options });
+};
+export const ListingsBySlugsDocument = gql`
+    query ListingsBySlugs($slugs: [String!]!) {
+  listingsBySlugs(slugs: $slugs) {
+    data {
+      title
+      id
+      reverbId
+      reverbSku
+      reverbImagesImported
+      slug
+      photos
+      price
+      categories
+      condition
+      description
+      finish
+      year
+      submodel
+      model
+      make
+    }
+    errors {
+      message
+      field
+      code
+    }
+  }
+}
+    `;
+
+export function useListingsBySlugsQuery(options: Omit<Urql.UseQueryArgs<ListingsBySlugsQueryVariables>, 'query'> = {}) {
+  return Urql.useQuery<ListingsBySlugsQuery>({ query: ListingsBySlugsDocument, ...options });
 };

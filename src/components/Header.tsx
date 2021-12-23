@@ -3,20 +3,27 @@ import { Dialog, Popover, Tab, Transition } from '@headlessui/react';
 import {
     MenuIcon,
     SearchIcon,
-    ShoppingBagIcon,
+    ShoppingCartIcon,
     UserIcon,
     XIcon,
 } from '@heroicons/react/outline';
 import navigation from '@lib/navigation';
 import classNames from '@lib/util/classNames';
+import { useCartContext } from '@lib/state/cartState';
 
 interface HeaderProps {}
 
 const Header: React.FC<HeaderProps> = ({}) => {
+    const [_, dispatch] = useCartContext();
+
+    const openCart = () => {
+        dispatch({ type: 'openCart' });
+    };
+
     const [open, setOpen] = useState(false);
 
     return (
-        <div className='bg-neutral-800 z-30'>
+        <div className='z-30 bg-neutral-800'>
             {/* Mobile menu */}
             <Transition.Root show={open} as={Fragment}>
                 <Dialog
@@ -480,9 +487,9 @@ const Header: React.FC<HeaderProps> = ({}) => {
                                 {/* Cart */}
                                 <div className='flow-root ml-4 lg:ml-6'>
                                     <a
-                                        href='#'
+                                        onClick={openCart}
                                         className='flex items-center p-2 -m-2 group'>
-                                        <ShoppingBagIcon
+                                        <ShoppingCartIcon
                                             className='flex-shrink-0 w-6 h-6 text-neutral-400 group-hover:text-neutral-500'
                                             aria-hidden='true'
                                         />

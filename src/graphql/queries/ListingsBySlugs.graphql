@@ -1,0 +1,27 @@
+query ListingsBySlugs($slugs: [String!]!) {
+    listingsBySlugs(slugs: $slugs) {
+        data {
+            title
+            id
+            reverbId
+            reverbSku
+            reverbImagesImported
+            slug
+            photos
+            price
+            categories
+            condition
+            description
+            finish
+            year
+            submodel
+            model
+            make
+        }
+        errors {
+            message
+            field
+            code
+        }
+    }
+}
