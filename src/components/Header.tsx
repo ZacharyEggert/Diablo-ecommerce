@@ -2,9 +2,9 @@ import { Fragment, useState } from 'react';
 import { Dialog, Popover, Tab, Transition } from '@headlessui/react';
 import {
     MenuIcon,
-    SearchIcon,
+    // SearchIcon,
     ShoppingCartIcon,
-    UserIcon,
+    // UserIcon,
     XIcon,
 } from '@heroicons/react/outline';
 import navigation from '@lib/navigation';
@@ -15,13 +15,13 @@ import Link from 'next/link';
 interface HeaderProps {}
 
 const Header: React.FC<HeaderProps> = ({}) => {
-    const [state, dispatch] = useCartContext();
+    const [cartState, cartDispatch] = useCartContext();
 
     const openCart = () => {
-        dispatch({ type: 'openCart' });
+        cartDispatch({ type: 'openCart' });
     };
 
-    const cartCount = state.slugs.length;
+    const cartCount = cartState.slugs.length;
 
     const [open, setOpen] = useState(false);
 
@@ -243,7 +243,7 @@ const Header: React.FC<HeaderProps> = ({}) => {
                                     />
                                 </button>
 
-                                <a
+                                {/* <a
                                     href='#'
                                     className='p-2 ml-2 text-neutral-400 hover:text-neutral-500'>
                                     <span className='sr-only'>Search</span>
@@ -251,7 +251,7 @@ const Header: React.FC<HeaderProps> = ({}) => {
                                         className='w-6 h-6'
                                         aria-hidden='true'
                                     />
-                                </a>
+                                </a> */}
                             </div>
 
                             {/* Flyout menus */}
@@ -261,7 +261,7 @@ const Header: React.FC<HeaderProps> = ({}) => {
                                         <Popover
                                             key={category.name}
                                             className='flex'>
-                                            {({ open }) => (
+                                            {({ open, close }) => (
                                                 <>
                                                     <div className='relative flex'>
                                                         <Popover.Button
@@ -335,19 +335,24 @@ const Header: React.FC<HeaderProps> = ({}) => {
                                                                                         />
                                                                                         <div className='flex flex-col justify-end'>
                                                                                             <div className='p-4 text-sm bg-white bg-opacity-60'>
-                                                                                                <a
+                                                                                                <Link
                                                                                                     href={
                                                                                                         item.href
-                                                                                                    }
-                                                                                                    className='font-medium text-neutral-900'>
-                                                                                                    <span
-                                                                                                        className='absolute inset-0'
-                                                                                                        aria-hidden='true'
-                                                                                                    />
-                                                                                                    {
-                                                                                                        item.name
-                                                                                                    }
-                                                                                                </a>
+                                                                                                    }>
+                                                                                                    <a
+                                                                                                        className='font-medium text-neutral-900'
+                                                                                                        onClick={() =>
+                                                                                                            close()
+                                                                                                        }>
+                                                                                                        <span
+                                                                                                            className='absolute inset-0'
+                                                                                                            aria-hidden='true'
+                                                                                                        />
+                                                                                                        {
+                                                                                                            item.name
+                                                                                                        }
+                                                                                                    </a>
+                                                                                                </Link>
                                                                                                 <p
                                                                                                     aria-hidden='true'
                                                                                                     className='mt-0.5 text-neutral-600 sm:mt-1'>
@@ -399,15 +404,20 @@ const Header: React.FC<HeaderProps> = ({}) => {
                                                                                                                         item.name
                                                                                                                     }
                                                                                                                     className='flex'>
-                                                                                                                    <a
+                                                                                                                    <Link
                                                                                                                         href={
                                                                                                                             item.href
-                                                                                                                        }
-                                                                                                                        className='hover:text-neutral-100'>
-                                                                                                                        {
-                                                                                                                            item.name
-                                                                                                                        }
-                                                                                                                    </a>
+                                                                                                                        }>
+                                                                                                                        <a
+                                                                                                                            className='hover:text-neutral-100'
+                                                                                                                            onClick={() =>
+                                                                                                                                close()
+                                                                                                                            }>
+                                                                                                                            {
+                                                                                                                                item.name
+                                                                                                                            }
+                                                                                                                        </a>
+                                                                                                                    </Link>
                                                                                                                 </li>
                                                                                                             )
                                                                                                         )}
@@ -441,19 +451,21 @@ const Header: React.FC<HeaderProps> = ({}) => {
                             </Popover.Group>
 
                             {/* Logo */}
-                            <a href='/' className='relative flex'>
-                                <span className='sr-only'>Diablo Guitars</span>
-                                <img
-                                    className='relative w-auto rounded-full h-28 -bottom-8'
-                                    src='/assets/main-logo-ring.png'
-                                    alt=''
-                                />
-                            </a>
+                            <Link href='/'>
+                                <div className='relative flex hover:cursor-pointer'>
+                                    <span className='sr-only'>
+                                        Diablo Guitars
+                                    </span>
+                                    <img
+                                        className='relative w-auto rounded-full h-28 -bottom-8'
+                                        src='/assets/main-logo-ring.png'
+                                        alt=''
+                                    />
+                                </div>
+                            </Link>
 
                             <div className='flex items-center justify-end flex-1'>
-                                <a
-                                    href='#'
-                                    className='hidden text-neutral-200 hover:text-neutral-100 lg:flex lg:items-center'>
+                                <a className='hidden text-neutral-200 hover:text-neutral-100 lg:flex lg:items-center'>
                                     <img
                                         src='https://tailwindui.com/img/flags/flag-united-states.svg'
                                         alt=''
@@ -468,7 +480,7 @@ const Header: React.FC<HeaderProps> = ({}) => {
                                 </a>
 
                                 {/* Search */}
-                                <a
+                                {/* <a
                                     href='#'
                                     className='hidden p-2 ml-6 text-neutral-400 hover:text-neutral-500 lg:block'>
                                     <span className='sr-only'>Search</span>
@@ -476,10 +488,10 @@ const Header: React.FC<HeaderProps> = ({}) => {
                                         className='w-6 h-6'
                                         aria-hidden='true'
                                     />
-                                </a>
+                                </a> */}
 
                                 {/* Account */}
-                                <a
+                                {/* <a
                                     href='#'
                                     className='p-2 text-neutral-400 hover:text-neutral-500 lg:ml-4'>
                                     <span className='sr-only'>Account</span>
@@ -487,7 +499,7 @@ const Header: React.FC<HeaderProps> = ({}) => {
                                         className='w-6 h-6'
                                         aria-hidden='true'
                                     />
-                                </a>
+                                </a> */}
 
                                 {/* Cart */}
                                 <div className='flow-root ml-4 lg:ml-6'>

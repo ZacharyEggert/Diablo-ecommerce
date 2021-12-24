@@ -6,12 +6,15 @@ import { useListingsQuery } from 'src/generated/graphql';
 export default function Home() {
     const [isLoading, setIsLoading] = useState(true);
 
-    const [{ data, error }, call] = useListingsQuery();
+    const [{ data, error, fetching }, call] = useListingsQuery();
 
     useEffect(() => {
         call();
-        setIsLoading(false);
     }, []);
+
+    useEffect(() => {
+        setIsLoading(!!fetching);
+    }, [fetching]);
 
     return (
         <div>

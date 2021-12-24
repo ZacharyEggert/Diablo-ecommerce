@@ -15,12 +15,12 @@ const TEST_NAVIGATION = {
                     name: 'Accessories',
                     href: '/accessories',
                     imageSrc:
-                        'https://i0.wp.com/www.diabloguitars.com/wp-content/uploads/2021/06/cm8unae6kqxbrd3piwhy.jpg?fit=728%2C800&ssl=1',
-                    imageAlt: 'Jimi Hendrix Univibe pedal.',
+                        'https://images.reverb.com/image/upload/s--TEbPdDRu--/f_auto,t_large/v1614029515/n2ihnr8ptqmqzwrc6x0k.jpg',
+                    imageAlt: 'Guitar picks',
                 },
                 {
                     name: 'Amplifiers',
-                    href: '/amplifiers',
+                    href: '/amps',
                     imageSrc:
                         'https://i2.wp.com/www.diabloguitars.com/wp-content/uploads/2021/11/jah4qgd20i3bl2uara9g.jpg?fit=800%2C800&ssl=1',
                     imageAlt: 'Jimi Hendrix Univibe pedal.',
