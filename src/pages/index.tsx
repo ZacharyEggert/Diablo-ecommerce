@@ -2,6 +2,7 @@ import Loading from '@components/Loading';
 import ProductTileView from '@components/ProductTileView';
 import { useEffect, useState } from 'react';
 import { useListingsQuery } from 'src/generated/graphql';
+import Hero from '@components/Hero';
 
 export default function Home() {
     const [isLoading, setIsLoading] = useState(true);
@@ -18,7 +19,7 @@ export default function Home() {
 
     return (
         <div>
-            <div className='h-20'></div>
+            <Hero src='/assets/guitar-wall.jpg' />
             {/* <Pagination
                 currentPage={page}
                 totalPages={pageCount || 1}

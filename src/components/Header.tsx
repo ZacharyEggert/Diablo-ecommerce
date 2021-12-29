@@ -26,7 +26,7 @@ const Header: React.FC<HeaderProps> = ({}) => {
     const [open, setOpen] = useState(false);
 
     return (
-        <div className='z-30 bg-neutral-800'>
+        <div className='z-30 bg-neutral-800 fixed w-full'>
             {/* Mobile menu */}
             <Transition.Root show={open} as={Fragment}>
                 <Dialog
