@@ -13,7 +13,7 @@ const cartContext = createContext<[CartState, Dispatch<CartReducerAction>]>([
 ]);
 const ProtoCartProvider = cartContext.Provider;
 
-interface CartState {
+export interface CartState {
     slugs: (string | undefined)[];
     isOpen: boolean;
 }
@@ -29,19 +29,48 @@ const reducer: Reducer<CartState, CartReducerAction> = (
     state: CartState,
     action: CartReducerAction
 ) => {
+    let newState: CartState;
+
     switch (action.type) {
         case 'add':
             if (state.slugs.includes(action.payload)) return state;
-            return { ...state, slugs: [...state.slugs, action.payload] };
+            newState = { ...state, slugs: [...state.slugs, action.payload] };
+            try {
+                localStorage.setItem(
+                    'cartState',
+                    JSON.stringify({ ...newState, isOpen: false })
+                );
+            } catch (error) {
+                console.error(error);
+            }
+            return newState;
         case 'remove':
-            return {
+            newState = {
                 ...state,
                 slugs: state.slugs.filter((item) => item !== action.payload),
             };
+            try {
+                localStorage.setItem(
+                    'cartState',
+                    JSON.stringify({ ...newState, isOpen: false })
+                );
+            } catch (error) {
+                console.error(error);
+            }
+            return newState;
         case 'toggle':
             return { ...state, isOpen: !state.isOpen };
         case 'clear':
-            return { ...state, slugs: [] };
+            newState = { ...state, slugs: [] };
+            try {
+                localStorage.setItem(
+                    'cartState',
+                    JSON.stringify({ ...newState, isOpen: false })
+                );
+            } catch (error) {
+                console.error(error);
+            }
+            return newState;
         case 'openCart':
             return { ...state, isOpen: true };
         case 'closeCart':
@@ -51,9 +80,20 @@ const reducer: Reducer<CartState, CartReducerAction> = (
     }
 };
 
-const CartProvider = (props: { children: any }) => {
-    const [state, dispatch] = useReducer(reducer, initialState);
-    return <ProtoCartProvider value={[state, dispatch]} {...props} />;
+const CartProvider = ({
+    children,
+    initState,
+    ...props
+}: {
+    children: any;
+    initState: CartState;
+}) => {
+    const [state, dispatch] = useReducer(reducer, initState);
+    return (
+        <ProtoCartProvider value={[state, dispatch]} {...props}>
+            {children}
+        </ProtoCartProvider>
+    );
 };
 
 const useCartContext = () => {
