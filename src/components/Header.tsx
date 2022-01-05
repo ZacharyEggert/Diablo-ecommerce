@@ -1,4 +1,4 @@
-import { Fragment, useState } from 'react';
+import { Fragment, useEffect, useState } from 'react';
 import { Dialog, Popover, Tab, Transition } from '@headlessui/react';
 import {
     MenuIcon,
@@ -21,12 +21,26 @@ const Header: React.FC<HeaderProps> = ({}) => {
         cartDispatch({ type: 'openCart' });
     };
 
+    useEffect(() => {
+        // get cart state from local storage
+        try {
+            const cartState = localStorage.getItem('cartState');
+            if (cartState) {
+                cartDispatch({
+                    type: 'setCart',
+                    payload: JSON.parse(cartState).slugs,
+                });
+            }
+        } catch (error) {
+            console.error(error);
+        }
+    }, []);
     const cartCount = cartState.slugs.length;
 
     const [open, setOpen] = useState(false);
 
     return (
-        <div className='z-30 bg-neutral-800 fixed w-full'>
+        <div className='fixed z-30 w-full bg-neutral-800'>
             {/* Mobile menu */}
             <Transition.Root show={open} as={Fragment}>
                 <Dialog
