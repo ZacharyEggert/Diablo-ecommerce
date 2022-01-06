@@ -1,24 +1,24 @@
 query ListingsByMakeAndCategory($category: String!, $make: String!) {
     listingsByMakeAndCategory(category: $category, make: $make) {
         data {
-            id
-            reverbId
-            reverbSku
-            reverbSelfLink
-            reverbImagesImported
-            title
-            model
-            make
-            year
-            submodel
-            finish
-            description
-            condition
             categories
-            price
-            cost
+            condition
+            description
+            finish
+            id
+            make
+            model
             photos
+            price
+            reverbId
+            reverbImagesImported
+            reverbSelfLink
+            reverbSku
+            salePrice
             slug
+            submodel
+            title
+            year
         }
         errors {
             message

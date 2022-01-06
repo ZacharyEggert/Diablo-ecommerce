@@ -1,22 +1,24 @@
 query ListingsBySlugs($slugs: [String!]!) {
     listingsBySlugs(slugs: $slugs) {
         data {
-            title
-            id
-            reverbId
-            reverbSku
-            reverbImagesImported
-            slug
-            photos
-            price
             categories
             condition
             description
             finish
-            year
-            submodel
-            model
+            id
             make
+            model
+            photos
+            price
+            reverbId
+            reverbImagesImported
+            reverbSelfLink
+            reverbSku
+            salePrice
+            slug
+            submodel
+            title
+            year
         }
         errors {
             message

@@ -1,24 +1,24 @@
 query ListingsByCategory($category: String!) {
     listingsByCategory(category: $category) {
         data {
+            categories
+            condition
+            description
+            finish
             id
-            reverbId
-            reverbSku
-            reverbSelfLink
-            reverbImagesImported
-            title
             make
             model
-            submodel
-            year
-            finish
-            description
-            condition
-            categories
-            price
-            cost
             photos
+            price
+            reverbId
+            reverbImagesImported
+            reverbSelfLink
+            reverbSku
+            salePrice
             slug
+            submodel
+            title
+            year
         }
         errors {
             message
