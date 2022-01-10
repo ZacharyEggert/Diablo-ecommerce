@@ -13,6 +13,8 @@ export type Scalars = {
   Boolean: boolean;
   Int: number;
   Float: number;
+  /** The javascript `Date` as string. Type represents date and time as the ISO Date string. */
+  DateTime: any;
 };
 
 export type BooleanWithError = {
@@ -33,6 +35,7 @@ export type Listing = {
   categories: Array<Scalars['String']>;
   condition: Scalars['String'];
   cost: Scalars['Float'];
+  createdAt: Scalars['DateTime'];
   description: Scalars['String'];
   finish?: Maybe<Scalars['String']>;
   id: Scalars['Float'];
@@ -44,10 +47,11 @@ export type Listing = {
   reverbImagesImported?: Maybe<Scalars['Boolean']>;
   reverbSelfLink?: Maybe<Scalars['String']>;
   reverbSku?: Maybe<Scalars['String']>;
-  salePrice: Scalars['Float'];
+  salePrice?: Maybe<Scalars['Float']>;
   slug: Scalars['String'];
   submodel?: Maybe<Scalars['String']>;
   title: Scalars['String'];
+  updatedAt: Scalars['DateTime'];
   year?: Maybe<Scalars['String']>;
 };
 
@@ -66,6 +70,7 @@ export type ListingsResponse = {
 export type Mutation = {
   __typename?: 'Mutation';
   createListing: ListingResponse;
+  createTestUser: BooleanWithError;
   createUser: UserResponse;
   deleteAllListings: BooleanWithError;
   deleteListing: BooleanWithError;
@@ -126,6 +131,7 @@ export type Query = {
   listingBySlug: ListingResponse;
   listings: ListingsResponse;
   listingsByCategory: ListingsResponse;
+  listingsByField: ListingsResponse;
   listingsByMake: ListingsResponse;
   listingsByMakeAndCategory: ListingsResponse;
   listingsBySlugs: ListingsResponse;
@@ -147,6 +153,12 @@ export type QueryListingBySlugArgs = {
 
 export type QueryListingsByCategoryArgs = {
   category: Scalars['String'];
+};
+
+
+export type QueryListingsByFieldArgs = {
+  field?: InputMaybe<Scalars['String']>;
+  order?: InputMaybe<Scalars['String']>;
 };
 
 
@@ -195,19 +207,19 @@ export type ListingBySlugQueryVariables = Exact<{
 }>;
 
 
-export type ListingBySlugQuery = { __typename?: 'Query', listingBySlug: { __typename?: 'ListingResponse', data?: { __typename?: 'Listing', categories: Array<string>, condition: string, description: string, finish?: string | null | undefined, id: number, make: string, model: string, photos: Array<string>, price: number, reverbId?: number | null | undefined, reverbImagesImported?: boolean | null | undefined, reverbSelfLink?: string | null | undefined, reverbSku?: string | null | undefined, salePrice: number, slug: string, submodel?: string | null | undefined, title: string, year?: string | null | undefined } | null | undefined, errors?: Array<{ __typename?: 'GQLError', message: string, field?: string | null | undefined, code?: string | null | undefined }> | null | undefined } };
+export type ListingBySlugQuery = { __typename?: 'Query', listingBySlug: { __typename?: 'ListingResponse', data?: { __typename?: 'Listing', categories: Array<string>, condition: string, description: string, finish?: string | null | undefined, id: number, make: string, model: string, photos: Array<string>, price: number, reverbId?: number | null | undefined, reverbImagesImported?: boolean | null | undefined, reverbSelfLink?: string | null | undefined, reverbSku?: string | null | undefined, salePrice?: number | null | undefined, slug: string, submodel?: string | null | undefined, title: string, year?: string | null | undefined } | null | undefined, errors?: Array<{ __typename?: 'GQLError', message: string, field?: string | null | undefined, code?: string | null | undefined }> | null | undefined } };
 
 export type ListingsQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type ListingsQuery = { __typename?: 'Query', listings: { __typename?: 'ListingsResponse', data?: Array<{ __typename?: 'Listing', categories: Array<string>, condition: string, description: string, finish?: string | null | undefined, id: number, make: string, model: string, photos: Array<string>, price: number, reverbId?: number | null | undefined, reverbImagesImported?: boolean | null | undefined, reverbSelfLink?: string | null | undefined, reverbSku?: string | null | undefined, salePrice: number, slug: string, submodel?: string | null | undefined, title: string, year?: string | null | undefined }> | null | undefined, errors?: Array<{ __typename?: 'GQLError', message: string, field?: string | null | undefined, code?: string | null | undefined }> | null | undefined } };
+export type ListingsQuery = { __typename?: 'Query', listings: { __typename?: 'ListingsResponse', data?: Array<{ __typename?: 'Listing', categories: Array<string>, condition: string, description: string, finish?: string | null | undefined, id: number, make: string, model: string, photos: Array<string>, price: number, reverbId?: number | null | undefined, reverbImagesImported?: boolean | null | undefined, reverbSelfLink?: string | null | undefined, reverbSku?: string | null | undefined, salePrice?: number | null | undefined, slug: string, submodel?: string | null | undefined, title: string, year?: string | null | undefined }> | null | undefined, errors?: Array<{ __typename?: 'GQLError', message: string, field?: string | null | undefined, code?: string | null | undefined }> | null | undefined } };
 
 export type ListingsByCategoryQueryVariables = Exact<{
   category: Scalars['String'];
 }>;
 
 
-export type ListingsByCategoryQuery = { __typename?: 'Query', listingsByCategory: { __typename?: 'ListingsResponse', data?: Array<{ __typename?: 'Listing', categories: Array<string>, condition: string, description: string, finish?: string | null | undefined, id: number, make: string, model: string, photos: Array<string>, price: number, reverbId?: number | null | undefined, reverbImagesImported?: boolean | null | undefined, reverbSelfLink?: string | null | undefined, reverbSku?: string | null | undefined, salePrice: number, slug: string, submodel?: string | null | undefined, title: string, year?: string | null | undefined }> | null | undefined, errors?: Array<{ __typename?: 'GQLError', message: string, field?: string | null | undefined, code?: string | null | undefined }> | null | undefined } };
+export type ListingsByCategoryQuery = { __typename?: 'Query', listingsByCategory: { __typename?: 'ListingsResponse', data?: Array<{ __typename?: 'Listing', categories: Array<string>, condition: string, description: string, finish?: string | null | undefined, id: number, make: string, model: string, photos: Array<string>, price: number, reverbId?: number | null | undefined, reverbImagesImported?: boolean | null | undefined, reverbSelfLink?: string | null | undefined, reverbSku?: string | null | undefined, salePrice?: number | null | undefined, slug: string, submodel?: string | null | undefined, title: string, year?: string | null | undefined }> | null | undefined, errors?: Array<{ __typename?: 'GQLError', message: string, field?: string | null | undefined, code?: string | null | undefined }> | null | undefined } };
 
 export type ListingsByMakeAndCategoryQueryVariables = Exact<{
   category: Scalars['String'];
@@ -215,14 +227,14 @@ export type ListingsByMakeAndCategoryQueryVariables = Exact<{
 }>;
 
 
-export type ListingsByMakeAndCategoryQuery = { __typename?: 'Query', listingsByMakeAndCategory: { __typename?: 'ListingsResponse', data?: Array<{ __typename?: 'Listing', categories: Array<string>, condition: string, description: string, finish?: string | null | undefined, id: number, make: string, model: string, photos: Array<string>, price: number, reverbId?: number | null | undefined, reverbImagesImported?: boolean | null | undefined, reverbSelfLink?: string | null | undefined, reverbSku?: string | null | undefined, salePrice: number, slug: string, submodel?: string | null | undefined, title: string, year?: string | null | undefined }> | null | undefined, errors?: Array<{ __typename?: 'GQLError', message: string, field?: string | null | undefined, code?: string | null | undefined }> | null | undefined } };
+export type ListingsByMakeAndCategoryQuery = { __typename?: 'Query', listingsByMakeAndCategory: { __typename?: 'ListingsResponse', data?: Array<{ __typename?: 'Listing', categories: Array<string>, condition: string, description: string, finish?: string | null | undefined, id: number, make: string, model: string, photos: Array<string>, price: number, reverbId?: number | null | undefined, reverbImagesImported?: boolean | null | undefined, reverbSelfLink?: string | null | undefined, reverbSku?: string | null | undefined, salePrice?: number | null | undefined, slug: string, submodel?: string | null | undefined, title: string, year?: string | null | undefined }> | null | undefined, errors?: Array<{ __typename?: 'GQLError', message: string, field?: string | null | undefined, code?: string | null | undefined }> | null | undefined } };
 
 export type ListingsBySlugsQueryVariables = Exact<{
   slugs: Array<Scalars['String']> | Scalars['String'];
 }>;
 
 
-export type ListingsBySlugsQuery = { __typename?: 'Query', listingsBySlugs: { __typename?: 'ListingsResponse', data?: Array<{ __typename?: 'Listing', categories: Array<string>, condition: string, description: string, finish?: string | null | undefined, id: number, make: string, model: string, photos: Array<string>, price: number, reverbId?: number | null | undefined, reverbImagesImported?: boolean | null | undefined, reverbSelfLink?: string | null | undefined, reverbSku?: string | null | undefined, salePrice: number, slug: string, submodel?: string | null | undefined, title: string, year?: string | null | undefined }> | null | undefined, errors?: Array<{ __typename?: 'GQLError', message: string, field?: string | null | undefined, code?: string | null | undefined }> | null | undefined } };
+export type ListingsBySlugsQuery = { __typename?: 'Query', listingsBySlugs: { __typename?: 'ListingsResponse', data?: Array<{ __typename?: 'Listing', categories: Array<string>, condition: string, description: string, finish?: string | null | undefined, id: number, make: string, model: string, photos: Array<string>, price: number, reverbId?: number | null | undefined, reverbImagesImported?: boolean | null | undefined, reverbSelfLink?: string | null | undefined, reverbSku?: string | null | undefined, salePrice?: number | null | undefined, slug: string, submodel?: string | null | undefined, title: string, year?: string | null | undefined }> | null | undefined, errors?: Array<{ __typename?: 'GQLError', message: string, field?: string | null | undefined, code?: string | null | undefined }> | null | undefined } };
 
 
 export const ListingBySlugDocument = gql`
