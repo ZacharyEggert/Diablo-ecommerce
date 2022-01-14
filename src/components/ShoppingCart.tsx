@@ -53,9 +53,9 @@ const ShoppingCart: FC<ShoppingCartProps> = ({}) => {
         call();
     }, [state.slugs]);
 
-    const setOpen = () => {
-        dispatch({ type: 'openCart' });
-    };
+    // const setOpen = () => {
+    //     dispatch({ type: 'openCart' });
+    // };
 
     const removeFromCart = (slug: string) => {
         dispatch({ type: 'remove', payload: slug });
