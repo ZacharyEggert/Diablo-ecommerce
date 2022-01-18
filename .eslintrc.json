@@ -1,5 +1,5 @@
 {
-    "extends": ["eslint:recommended", "next"],
+    "extends": "plugin:@next/next/recommended",
     "rules": {
         "indent": ["warn", 4],
         "quotes": ["warn", "single"],
